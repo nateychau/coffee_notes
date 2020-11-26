@@ -1,32 +1,15 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const CoffeeSchema = new Schema(
+const NoteSchema = new Schema(
   {
     userId: {
       type: Schema.Types.ObjectId,
       ref: "User",
       required: true,
     },
-    brand: {
-      type: String,
-    },
-    roast: {
-      type: String,
-    },
-    origin: {
-      type: String,
-    },
     notes: {
       type: String,
-    },
-    song: {
-      type: String,
-    },
-    date: {
-      type: Date,
-      required: true,
-      default: Date.now,
     },
     brewMethod: {
       type: String,
@@ -36,10 +19,15 @@ const CoffeeSchema = new Schema(
     },
     time: {
       type: String, //will be in minutes?
+    },
+    beanId: {
+      type: Schema.Types.ObjectId,
+      ref: "Bean",
+      required: true,
     }
   },
   { timestamps: true }
 )
 
-const Coffee = mongoose.model("Coffee", CoffeeSchema);
-module.exports = Coffee;
+const Note = mongoose.model("Note", NoteSchema);
+module.exports = Note;

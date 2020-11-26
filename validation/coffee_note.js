@@ -1,6 +1,6 @@
 const Validator = require("validator");
 
-module.exports = function validateCoffeeInput(data){
+module.exports = function validateNoteInput(data){
   let errors = {}; 
 
   // if (!Validator.isEmpty(data.date)) {
