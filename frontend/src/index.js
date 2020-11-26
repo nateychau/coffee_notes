@@ -1,17 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { App } from './components/App';
+import jwt_decode from 'jwt-decode';
+import { setAuthToken } from './util/session_api_util';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+document.addEventListener('DOMContentLoaded', () => {
+  //bootstrap current user
+  // if (localStorage.jwtToken){
+  //   setAuthToken(localStorage.jwtToken);
+  //   const decodedUser = jwt_decode(localStorage.jwtToken);
+  //   window.currentUser = decodedUser; //save current user to window 
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+  //   const currentTime = Date.now() / 1000;
+  //   if (decodedUser.exp < currentTime) {
+  //     window.location.href = '/login'; //logout current user when session expires 
+  //   }
+  // }
+
+  const root = document.getElementById('root');
+  ReactDOM.render(<App />, root);
+});
