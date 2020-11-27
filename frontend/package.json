@@ -38,5 +38,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "frontend-install": "npm install --prefix frontend",
+  "frontend": "npm start --prefix frontend",
+  "dev": "concurrently \"npm run debug\" \"npm run frontend\""
 }
