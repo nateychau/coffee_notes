@@ -8,6 +8,10 @@
   justify-content: flex-end;
 }
 
+.auth-body button:disabled{
+  color: #c0bdbd;
+}
+
 .auth-form{
   background-color: #211717;
   width: 100%;
@@ -15,6 +19,10 @@
 
 .auth-form input{
   color: #a34a28;
+}
+
+.auth-error{
+  color: red;
 }
 
 .auth-form input::placeholder{
