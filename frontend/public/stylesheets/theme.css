@@ -1,0 +1,22 @@
+.main{
+  background-color: #a34a28;
+  color: #dfddc7;
+  width: 100%;
+  min-height: 100vh;
+}
+button{
+  padding: 4px 8px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  cursor: pointer;
+  color: black;
+}
+
+button:hover{
+  background-color: #d8d7d7;
+}
+
+input{
+  border: 1px solid black;
+  border-radius: 4px;
+}

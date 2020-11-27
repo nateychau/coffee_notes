@@ -1,10 +1,11 @@
 import React from 'react';
 import { HashRouter } from 'react-router-dom';
-import Signup from './signup';
+import { AuthForm } from './user_auth/auth_form';
 
 export const App = () => (
   <HashRouter>
-    <div>big bean</div>
-    <Signup/>
+    <div className="main">
+      <AuthForm/>
+    </div>
   </HashRouter>
 );

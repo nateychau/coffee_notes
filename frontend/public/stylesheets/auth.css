@@ -1,0 +1,29 @@
+.auth-form, .auth-body{
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+}
+
+.auth-body{
+  justify-content: flex-end;
+}
+
+.auth-form{
+  background-color: #211717;
+}
+
+.auth-form input{
+  color: #a34a28;
+}
+
+.auth-form input::placeholder{
+  color: #a34a28;
+  font-weight: 500;
+}
+
+.auth-form input:-ms-input-placeholder{
+  color: #a34a28;
+}
+.auth-form input::-ms-input-placeholder{
+  color: #a34a28;
+}
