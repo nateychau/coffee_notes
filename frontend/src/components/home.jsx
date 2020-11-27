@@ -1,6 +1,6 @@
 import React from 'react';
-import { logoutUser } from '../util/session_api_util';
-import * as api from "../util/api";
+import { Link } from 'react-router-dom';
+
 
 export class Home extends React.Component{
  constructor(props){
@@ -10,8 +10,15 @@ export class Home extends React.Component{
  render(){
    return (
     <div>
-       <h2>Home Page</h2>
-       <button onClick={logoutUser}>Log Out</button>
+      <Link to="/settings">
+        <button>
+          <i className="fas fa-cog"></i>
+        </button>
+      </Link>
+      <div>
+        <h2>Home Page</h2>
+        
+      </div>
     </div>
    )
  }
