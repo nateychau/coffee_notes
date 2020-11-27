@@ -8,17 +8,13 @@
   justify-content: flex-end;
 }
 
-.auth-body button:disabled{
-  color: #c0bdbd;
-}
-
 .auth-form{
-  background-color: #211717;
+  background-color: var(--secondary-bg-color);
   width: 100%;
 }
 
 .auth-form input{
-  color: #a34a28;
+  color: var(--primary-bg-color);
 }
 
 .auth-error{
@@ -26,13 +22,13 @@
 }
 
 .auth-form input::placeholder{
-  color: #a34a28;
+  color: var(--primary-bg-color);
   font-weight: 500;
 }
 
 .auth-form input:-ms-input-placeholder{
-  color: #a34a28;
+  color: var(--primary-bg-color);
 }
 .auth-form input::-ms-input-placeholder{
-  color: #a34a28;
+  color: var(--primary-bg-color);
 }

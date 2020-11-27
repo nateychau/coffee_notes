@@ -1,19 +1,32 @@
+:root {
+  --primary-bg-color: #a34a28;
+  --secondary-bg-color: #211717;
+  --accent: #f58b54;
+
+  --light-text-color:  #dfddc7;
+  --dark-text-color: #211717;
+
+  --default-button-color: #ffffff;
+  --default-button-text: #000000;
+  --hover-button-color: #d8d7d7; /*probably won't really need this for mobile*/
+}
+
 .main{
-  background-color: #a34a28;
-  color: #dfddc7;
+  background-color: var(--primary-bg-color);
+  color: var(--light-text-color);
   width: 100%;
   min-height: 100vh;
 }
 button{
   padding: 4px 8px;
   border-radius: 8px;
-  background-color: #ffffff;
+  background-color: var(--default-button-color);
   cursor: pointer;
-  color: black;
+  color: var(--default-button-text);
 }
 
 button:hover{
-  background-color: #d8d7d7;
+  background-color: var(--hover-button-color);
 }
 
 input{
