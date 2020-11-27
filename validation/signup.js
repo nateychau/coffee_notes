@@ -23,6 +23,10 @@ module.exports = function validateSignupInput(data) {
     errors.password = "Password must be at least 6 characters";
   }
 
+  if (data.password !== data.passwordConfirm){
+    errors.password = "Passwords do not match";
+  }
+
   return {
     errors,
     isValid: Object.keys(errors).length === 0,

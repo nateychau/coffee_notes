@@ -30,6 +30,7 @@ router.post("/signup", (req, res) => {
       const newUser = new User({
         email: req.body.email,
         password: req.body.password,
+        passwordConfirm: req.body.passwordConfirm,
         name: req.body.name,
       });
 
