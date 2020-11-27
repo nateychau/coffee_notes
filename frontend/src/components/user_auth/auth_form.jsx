@@ -1,5 +1,6 @@
 import React from "react";
 import * as api from "../../util/api";
+import { authenticateUser } from "../../util/session_api_util";
 
 const resetState = {
   email: "",
@@ -55,9 +56,13 @@ export class AuthForm extends React.Component {
       email: this.state.email, 
       password: this.state.password, 
     };
-    api.loginUser(payload).then((res) => {
-      console.log('logged in');
-    });
+    api.loginUser(payload)
+      .then((res) => {
+        authenticateUser(res);
+      })
+      .catch(err => {
+        console.log(err.response.data);
+      })
   }
 
   signup(){
@@ -66,10 +71,13 @@ export class AuthForm extends React.Component {
       password: this.state.password, 
       name: this.state.name 
     };
-    api.signupUser(payload).then((res) => {
-      console.log("signed up!");
-      // this.setState({...resetState});
-    });
+    api.signupUser(payload)
+      .then((res) => {
+        authenticateUser(res);
+      })
+      .catch(err => {
+        console.log(err.response.data);
+      })
   };
 
   render() {
@@ -85,8 +93,8 @@ export class AuthForm extends React.Component {
     return (
       <div className="auth-body">
         <h2>coffee note</h2>
-        <h3>{this.state.type}</h3>
         <form className="auth-form">
+          <h3>{this.state.type}</h3>
           <label>
             Email:
           </label>
