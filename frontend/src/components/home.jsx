@@ -5,17 +5,14 @@ import { BeanIndex } from "./beans/bean_index";
 
 export const Home = () => {
     return (
-      <div>
-        <Link to="/settings">
+      <div className="home">
+        <Link to="/settings" className="settings-btn">
           <button>
             <i className="fas fa-cog"></i>
           </button>
         </Link>
-        <div>
-          <h2>Home Page</h2>
-          <BeanIndex />
-          <NewButton />
-        </div>
+        <BeanIndex />
+        <NewButton />
       </div>
     );
 }

@@ -5,6 +5,7 @@ import { AuthForm } from './user_auth/auth_form';
 import { Settings } from './settings';
 import { BeanForm } from './beans/bean_form';
 import { Home } from './home';
+import { BeanDetail } from './beans/bean_detail';
 
 
 export const App = () => (
@@ -12,6 +13,7 @@ export const App = () => (
     <div className="main">
       <AuthRoute exact path="/" component={AuthForm} />
       <Switch>
+        <ProtectedRoute path="/beans/:id" component={BeanDetail} />
         <ProtectedRoute path="/beans/new" component={BeanForm} />
         <ProtectedRoute path="/settings" component={Settings} />
         <ProtectedRoute exact path="/" component={Home} />

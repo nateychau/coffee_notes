@@ -13,7 +13,7 @@ export class BeanIndex extends React.Component {
   componentDidMount(){
     API.getUserBeans(window.currentUser.id)
       .then((beans) => {
-        console.log(beans);
+        // console.log(beans);
         this.setState({beans: beans.data});
       })
       .catch((err) => console.log(err));
