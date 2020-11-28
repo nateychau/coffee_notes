@@ -8,6 +8,15 @@ export class BeanDetail extends React.Component {
     this.state = {
       bean: null,
     }
+    this.handleDelete = this.handleDelete.bind(this);
+  }
+
+  handleDelete(){
+    API.deleteBean(this.state.bean._id)
+      .then(res => {
+        this.props.history.push("/");
+      })
+      .catch(err => console.log(err))
   }
 
   componentDidMount(){
@@ -25,6 +34,11 @@ export class BeanDetail extends React.Component {
       <div>
         <BackButton />
         <div>{this.state.bean.name}</div>
+        <div className="detail-btn-container">
+          <button onClick={this.handleDelete}>
+            <i className="fas fa-trash"></i>
+          </button>
+        </div>
       </div>
     )
   }
