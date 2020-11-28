@@ -1,25 +1,21 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
+import { NewButton } from "./beans/new_button";
+import { BeanIndex } from "./beans/bean_index";
 
-
-export class Home extends React.Component{
- constructor(props){
-   super(props);
- } 
-
- render(){
-   return (
-    <div>
-      <Link to="/settings">
-        <button>
-          <i className="fas fa-cog"></i>
-        </button>
-      </Link>
+export const Home = () => {
+    return (
       <div>
-        <h2>Home Page</h2>
-        
+        <Link to="/settings">
+          <button>
+            <i className="fas fa-cog"></i>
+          </button>
+        </Link>
+        <div>
+          <h2>Home Page</h2>
+          <BeanIndex />
+          <NewButton />
+        </div>
       </div>
-    </div>
-   )
- }
+    );
 }

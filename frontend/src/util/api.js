@@ -15,26 +15,8 @@ export const deleteNote = (id) => axios.delete(`/apinotes/${id}`);
 
 //api bean routes
 export const createNewBean = (payload) => axios.post(`/api/beans`, payload);
-export const getUsersBeans = (id) => axios.post(`/api/beans/user/${id}`);
+export const getUserBeans = (id) => axios.get(`/api/beans/user/${id}`);
 export const getBeanId = (id) => axios.get(`/api/beans/user/${id}`);
 export const updateBean = (payload) => axios.patch(`/api/beans`, payload);
 export const deleteBean = (id) => axios.delete(`/api/beans/${id}`);
 export const getByFilter = (filterType, filter) => axios.get(`/api/beans/${filterType}/${filter}`);
-//don't need to module.exports since we export everything individually
-// const apis = {
-//     signupUser,
-//     loginUser,
-//     getUser,
-//     createNewNote,
-//     getUserNotes,
-//     getNotesByBeanId,
-//     getNoteById,
-//     deleteNote,
-//     updateNote,
-//     createNewBean,
-//     getBeanId,
-//     updateBean,
-//     deleteBean,
-// }
-
-// module.exports = apis;
