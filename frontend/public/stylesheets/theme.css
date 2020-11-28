@@ -19,7 +19,7 @@
 }
 button{
   padding: 4px 8px;
-  border-radius: 8px;
+  border-radius: 10px;
   background-color: var(--default-button-color);
   cursor: pointer;
   color: var(--default-button-text);
@@ -30,6 +30,6 @@ button:hover{
 }
 
 input{
-  border: 1px solid black;
-  border-radius: 4px;
+  outline: 0;
+  border-bottom: 1px solid var(--light-text-color);
 }
