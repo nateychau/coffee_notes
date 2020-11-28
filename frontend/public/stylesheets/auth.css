@@ -1,3 +1,7 @@
+input {
+  font-size: 20px;
+}
+
 .auth-form, .auth-body{
   display: flex;
   flex-direction: column; 
@@ -6,6 +10,7 @@
 
 .auth-body{
   justify-content: flex-end;
+  height: 100%;
 }
 
 .auth-form{
@@ -32,3 +37,29 @@
 .auth-form input::-ms-input-placeholder{
   color: var(--primary-bg-color);
 }
+
+.formType {
+  font-size: 26px;
+}
+
+.switchToSignup {
+}
+
+.switchToSignupText {
+  display: inline-block;
+  color: var( --light-text-color);
+  font-size: 10px;
+}
+
+.switchToSignupButton {
+  color: #58E481;
+  background-color: Transparent;
+  font-size: 10px;
+  padding: 2px 0 0 5px;
+
+}
+
+.formActionButton {
+  margin-top: 25px;
+}
+
