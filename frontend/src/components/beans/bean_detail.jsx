@@ -1,5 +1,6 @@
 import React from 'react';
 import * as API from '../../util/api';
+import { BackButton } from '../back';
 
 export class BeanDetail extends React.Component {
   constructor(props){
@@ -21,7 +22,10 @@ export class BeanDetail extends React.Component {
     if (!this.state.bean) return null;
 
     return (
-      <div>{this.state.bean.name}</div>
+      <div>
+        <BackButton />
+        <div>{this.state.bean.name}</div>
+      </div>
     )
   }
 }
