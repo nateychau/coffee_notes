@@ -20,6 +20,7 @@ export class AuthForm extends React.Component {
       password: "",
       passwordConfirm: "",
       name: "",
+      checkedTermsAndService: false,
       errorList: {},
     };
     this.handleChange = this.handleChange.bind(this);
@@ -29,6 +30,7 @@ export class AuthForm extends React.Component {
   }
 
   handleChange(event) {
+    console.log(event.target.value);
     this.setState({ [event.target.name]: event.target.value });
   }
 
@@ -63,6 +65,9 @@ export class AuthForm extends React.Component {
   }
 
   signup() {
+    if(this.state.checkedTermsAndService === false){
+      alert('please agree to the terms and service');
+    };
     const payload = {
       email: this.state.email,
       password: this.state.password,
@@ -135,7 +140,17 @@ export class AuthForm extends React.Component {
                 name="passwordConfirm"
                 onChange={this.handleChange}
               ></input>
-              <button className="switchToLogin" onClick={this.switchForm}>{switchText}</button>
+              <label>     
+                <input
+                  type="checkbox"
+                  name="termsAndService"
+                  onChange={this.handleChange}
+                ></input>
+                I agree to the terms and service. 
+              </label>
+              <div className="switchToSignup">
+                <button className="switchToLogin" onClick={this.switchForm}>{switchText}</button>
+              </div>
             </>
           ) : null}
           {this.state.type === "Login" ? (

@@ -14,8 +14,10 @@ input {
 }
 
 .auth-form{
+  border-radius: 40px 40px 0 0;
   background-color: var(--secondary-bg-color);
   width: 100%;
+  flex: 1 0 auto;
 }
 
 .auth-form input{
@@ -43,6 +45,7 @@ input {
 }
 
 .switchToSignup {
+  margin-top: 20px;
 }
 
 .switchToSignupText {
