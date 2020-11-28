@@ -8,17 +8,22 @@ const BeanSchema = new Schema(
       ref: "User",
       required: true,
     },
+    name: {
+      type: String,
+      required: true,
+    },
     roaster: {
       type: String,
     },
+    // roasterId: {
+    //   type: Schema.Types.ObjectId,
+    //   ref: "Roaster",
+    // },
     roast: {
       type: String,
     },
     origin: {
       type: String,
-    },
-    price: {
-      type: Number, 
     },
     rating: {
       type: Number,

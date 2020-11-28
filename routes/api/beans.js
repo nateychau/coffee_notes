@@ -4,14 +4,16 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 
 const Bean = require('../../models/Bean');
+const User = require('../../models/User');
+const Roaster = require('../../models/Roaster');
 
 const keysFromReq = (req) => {
   return {
     userId: req.body.userId,
-    roaster: req.body.roaster,
+    name: req.body.name,
+    roaster: req.body.roaster, 
     roast: req.body.roast,
     origin: req.body.origin,
-    price: req.body.price,
     rating: req.body.rating,
   }
 }
@@ -22,10 +24,27 @@ const decomposePayload = (bean) => {
     roaster: bean.roaster,
     roast: bean.roast,
     origin: bean.origin,
-    price: bean.price,
     rating: bean.rating,
   }
 }
+
+//subroutine for saving a new bean
+// const saveBean = (req, roasterId, res) => {
+//   console.log(roasterId);
+//   const newBean = new Bean(keysFromReq(req, roasterId));
+//   newBean.save()
+//     .then(bean => {
+//       User.findById(bean.userId)
+//         .then((user) => {
+//           if(!user.roasters.includes(roasterId)){
+//             user.roasters.push(roasterId);
+//             user.save();
+//           }
+//         })
+//       return res.json(bean)
+//     })
+//     .catch(err => res.status(404).json(err));
+// }
 
 //post new bean
 router.post(
@@ -34,9 +53,46 @@ router.post(
   (req, res) => {
     const newBean = new Bean(keysFromReq(req));
     newBean.save()
-      .then((bean) => res.json(bean));
+      .then(bean => {
+        console.log(bean);
+        console.log(bean.roaster);
+        User.findById(bean.userId)
+          .then((user) => {
+            if(!user.roasters.includes(bean.roaster)){
+              user.roasters.push(bean.roaster);
+              user.save();
+            }
+          })
+        return res.json(bean)
+      })
+      .catch(err => res.status(404).json(err));
   }
 );
+
+
+//POST route with roaster id
+// router.post(
+//   "/",
+//   passport.authenticate("jwt", { session: false }),
+//   (req, res) => {
+//     Roaster.findOne({name: req.body.roaster})
+//       .then(roaster => {
+//         if(!roaster){
+//           console.log('roaster does not exist');
+//           const newRoaster = new Roaster({
+//             name: req.body.roaster,
+//           });
+//           newRoaster.save()
+//             .then(roaster => {
+//               saveBean(req, roaster._id, res);
+//             })
+//         } else {
+//           // console.log(roaster);
+//           saveBean(req, roaster._id, res);
+//         }
+//       })
+//   }
+// );
 
 //get user's beans
 router.get(
@@ -57,6 +113,18 @@ router.get(
       .catch(err => res.status(404).json(err));
   }
 );
+
+//get by specified filter
+router.get(
+  '/:filter_type/:filter',
+  (req, res) => {
+    Bean.find({
+      [req.params.filter_type]: req.params.filter
+    })
+      .then(beans => res.json(beans))
+      .catch(err => res.status(404).json(err));
+  }
+)
 
 //update bean
 router.patch(

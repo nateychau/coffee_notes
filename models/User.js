@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+// const Roaster = require('./Roaster');
 
 const UserSchema = new Schema(
   {
@@ -14,7 +15,14 @@ const UserSchema = new Schema(
     name: {
       type: String,
       required: true
-    }
+    },
+    roasters: [String],
+    // roasters: [
+    //   {
+    //     type: mongoose.Types.ObjectId, 
+    //     ref: 'Roaster'
+    //   }
+    // ], 
   }, 
   {
     timestamps: true
