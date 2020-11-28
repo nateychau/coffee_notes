@@ -29,13 +29,15 @@ app.use(passport.initialize());
 
 
 //api routes
-const note = require("./routes/api/notes");
+const notes = require("./routes/api/notes");
 const beans = require("./routes/api/beans");
+const roasters = require("./routes/api/roasters");
 
 //use routes declared in users.js and note.js
 app.use("/api/users", users); 
-app.use("/api/notes", note);
+app.use("/api/notes", notes);
 app.use("/api/beans", beans);
+app.use("/api/roasters", roasters);
 
 
 
