@@ -42,7 +42,8 @@ export class BeanForm extends React.Component {
     API.createNewBean(newBean)
       .then((bean) => {
         this.setState({ ...defaultState });
-        console.log(bean);
+        // console.log(bean);
+        window.location.href='/';
       })
       .catch((err) => console.log(err.response.data));
   }
