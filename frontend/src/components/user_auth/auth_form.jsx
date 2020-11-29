@@ -20,7 +20,7 @@ export class AuthForm extends React.Component {
       password: "",
       passwordConfirm: "",
       name: "",
-      checkedTermsAndService: false,
+      termsAndService: false,
       errorList: {},
     };
     this.handleChange = this.handleChange.bind(this);
@@ -65,9 +65,10 @@ export class AuthForm extends React.Component {
   }
 
   signup() {
-    if(this.state.checkedTermsAndService === false){
-      alert('please agree to the terms and service');
-    };
+    if (this.state.termsAndService === false) {
+      alert("please agree to the terms and service");
+      return;
+    }
     const payload = {
       email: this.state.email,
       password: this.state.password,
@@ -101,6 +102,7 @@ export class AuthForm extends React.Component {
           <div className="logoImage"></div>
           <div className="logoText"> coffee note </div>
         </div>
+        <div className="auth-form-container">
         <form className="auth-form">
           <div className="formType">{this.state.type}</div>
           {this.state.type === "Sign up" ? (
@@ -132,38 +134,44 @@ export class AuthForm extends React.Component {
           {this.state.errorList.password ? (
             <div className="auth-error">{this.state.errorList.password}</div>
           ) : null}
-          {this.state.type === "Sign up" ? (
-            <>
+        {this.state.type === "Sign up" ? (
+          <>
+            <input
+              type="password"
+              placeholder="confirm password"
+              value={this.state.passwordConfirm}
+              name="passwordConfirm"
+              onChange={this.handleChange}
+            ></input>
+            <label className="termsAndService">
               <input
-                type="password"
-                placeholder="confirm password"
-                value={this.state.passwordConfirm}
-                name="passwordConfirm"
+                type="checkbox"
+                name="termsAndService"
+                className="termsAndServiceSelector"
                 onChange={this.handleChange}
               ></input>
-              {/* <label className="termsAndService">     
-                <input
-                  type="checkbox"
-                  name="termsAndService"
-                  className="termsAndServiceSelector"
-                  onChange={this.handleChange}
-                ></input>
-                I agree to the terms and service. 
-              </label> */}
-              <div className="switchToForm">
-                <div className="switchToFormText"> Already have an account? </div>
-                <button className="switchToFormButton" onClick={this.switchForm}>{switchText}</button>
-              </div>
-            </>
-          ) : null}
-          {this.state.type === "Login" ? (
-            <span className="switchToForm">
-              <div className="switchToFormText"> Don't have an account? </div>
-              <button className="switchToFormButton" onClick={this.switchForm}>{switchText}</button>
-            </span>
-          ): null }
-          <button className="formActionButton" onClick={formAction}>{this.state.type}</button>
+              I agree to the terms and service.
+            </label>
+          </>
+        ) : null}
         </form>
+        {this.state.type === "Login" ? (
+          <span className="switchToForm">
+            <div className="switchToFormText"> Don't have an account? </div>
+            <button className="switchToFormButton" onClick={this.switchForm}>
+              {switchText}
+            </button>
+          </span>
+        ) : <div className="switchToForm">
+        <div className="switchToFormText"> Already have an account? </div>
+        <button className="switchToFormButton" onClick={this.switchForm}>
+          {switchText}
+        </button>
+      </div>}
+        <button className="formActionButton" onClick={formAction}>
+          {this.state.type}
+        </button>
+        </div>
       </div>
     );
   }
