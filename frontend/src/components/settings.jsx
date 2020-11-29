@@ -1,6 +1,6 @@
 import React from 'react';
 import { logoutUser } from '../util/session_api_util';
-import { Link } from 'react-router-dom';
+import { BackButton } from './back';
 
 export class Settings extends React.Component{
  constructor(props){
@@ -10,11 +10,7 @@ export class Settings extends React.Component{
  render(){
    return (
     <div>
-      <Link to="/">
-        <button>
-          <i className="fas fa-angle-left"></i>
-        </button>
-      </Link>
+      <BackButton />
       <h2>Settings</h2>
       <div>Name</div>
       <div>{window.currentUser.name}</div>
