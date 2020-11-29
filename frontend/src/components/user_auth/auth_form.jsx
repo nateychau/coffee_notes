@@ -98,7 +98,8 @@ export class AuthForm extends React.Component {
     return (
       <div className="auth-body">
         <div className="logo">
-          <h2>coffee note</h2>
+          <div className="logoImage"></div>
+          <div className="logoText"> coffee note </div>
         </div>
         <form className="auth-form">
           <div className="formType">{this.state.type}</div>
