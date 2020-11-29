@@ -13,7 +13,8 @@ export const App = () => (
     <div className="main">
       <AuthRoute exact path="/" component={AuthForm} />
       <Switch>
-        <ProtectedRoute path="/beans/new" component={BeanForm} />
+        {/* <ProtectedRoute path="/beans/edit" type="edit" component={BeanForm} /> */}
+        <ProtectedRoute path="/beans/new" type="new" component={BeanForm} />
         <ProtectedRoute path="/beans/:id" component={BeanDetail} />
         <ProtectedRoute path="/settings" component={Settings} />
         <ProtectedRoute exact path="/" component={Home} />
