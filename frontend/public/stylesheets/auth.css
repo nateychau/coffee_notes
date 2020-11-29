@@ -1,9 +1,9 @@
 input {
   margin-top: 10px;
-  font-size: 20px;
+  font-size: 16px;
 }
 
-.auth-form, .auth-body{
+.auth-form, .auth-body, .auth-form-container{
   display: flex;
   flex-direction: column; 
   align-items: center;
@@ -15,13 +15,17 @@ input {
 }
 
 .auth-form{
+  width: 100%;
+}
+
+.auth-form-container{
   border-radius: 40px 40px 0 0;
   background-color: var(--secondary-bg-color);
   width: 100%;
-  height: 65vh;
+  min-height: 65vh;
 }
 
-.auth-form input{
+.auth-form input[type=text], .auth-form input[type=password]{
   color: var(--primary-bg-color);
   width: 60%;
 }
@@ -98,6 +102,7 @@ input {
   color: var( --light-text-color);
   font-size: 12px;
   padding-top: 15px;
+  width: 60%;
 }
 
 .termsAndServiceSelector {
