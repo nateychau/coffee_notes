@@ -24,7 +24,7 @@ export class BeanIndex extends React.Component {
       return <BeanIndexItem key={i} bean={bean} />
     }) : [];
     return (
-      <div>
+      <div className="bean-index">
         <ul className="bean-list">
           {beanList}
         </ul>

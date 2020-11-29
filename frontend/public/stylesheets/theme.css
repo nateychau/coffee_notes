@@ -9,7 +9,6 @@
   --default-button-color: #ffffff;
   --default-button-text: #000000;
   --hover-button-color: #d8d7d7; /*probably won't really need this for mobile*/
-
 }
 
 .main{
@@ -33,4 +32,10 @@ button:hover{
 input{
   outline: 0;
   border-bottom: 1px solid var(--light-text-color);
+}
+
+.img-container img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }

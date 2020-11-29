@@ -3,6 +3,17 @@
    License: none (public domain)
 */
 
+@font-face {
+  font-family: neue-montreal;
+  src: url(../fonts/NeueMontreal-Regular.otf);
+}
+
+@font-face{
+  font-family: neue-montreal;
+  src: url(../fonts/NeueMontreal-Bold.otf);
+  font-weight: bold;
+}
+
 html,
 body,
 div,
@@ -88,7 +99,7 @@ video {
   padding: 0;
   border: 0;
   font-size: 100%;
-  font-family: "Roboto", sans-serif;
+  font-family: "neue-montreal";
   vertical-align: baseline;
   color: inherit;
   box-sizing: border-box;
