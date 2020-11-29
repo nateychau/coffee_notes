@@ -41,8 +41,14 @@ input {
   color: var(--primary-bg-color);
 }
 
+.formActionButton {
+  margin-top: 25px;
+}
+
 .formType {
-  margin: 5vh 18vh 5vh 0;
+  display: flex;
+  width: 210px;
+  margin: 5vh 0 5vh 0;
   font-size: 26px;
 }
 
@@ -62,24 +68,30 @@ input {
   font-size: 24px;
 }
 
-.switchToSignup {
+.switchToForm {
   margin-top: 20px;
 }
 
-.switchToSignupText {
+.switchToFormText {
   display: inline-block;
   color: var( --light-text-color);
-  font-size: 10px;
+  font-size: 12px;
 }
 
-.switchToSignupButton {
+.switchToFormButton {
   color: #58E481;
   background-color: Transparent;
-  font-size: 10px;
-  padding: 2px 0 0 5px;
-
+  font-size: 12px;
+  padding: 0 0 0 5px;
 }
 
-.formActionButton {
-  margin-top: 25px;
+.termsAndService {
+  display: flex;
+  color: var( --light-text-color);
+  font-size: 12px;
+  padding-top: 15px;
+}
+
+.termsAndServiceSelector {
+  margin: 0 5px 0 0;
 }

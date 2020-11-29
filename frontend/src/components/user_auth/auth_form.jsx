@@ -88,7 +88,7 @@ export class AuthForm extends React.Component {
   render() {
     let switchText, formAction;
     if (this.state.type === "Sign up") {
-      switchText = "Already have an account? Log in instead";
+      switchText = "Login!";
       formAction = this.signup;
     } else {
       switchText = "Sign up!";
@@ -141,23 +141,25 @@ export class AuthForm extends React.Component {
                 name="passwordConfirm"
                 onChange={this.handleChange}
               ></input>
-              <label>     
+              {/* <label className="termsAndService">     
                 <input
                   type="checkbox"
                   name="termsAndService"
+                  className="termsAndServiceSelector"
                   onChange={this.handleChange}
                 ></input>
                 I agree to the terms and service. 
-              </label>
-              <div className="switchToSignup">
-                <button className="switchToLogin" onClick={this.switchForm}>{switchText}</button>
+              </label> */}
+              <div className="switchToForm">
+                <div className="switchToFormText"> Already have an account? </div>
+                <button className="switchToFormButton" onClick={this.switchForm}>{switchText}</button>
               </div>
             </>
           ) : null}
           {this.state.type === "Login" ? (
-            <span className="switchToSignup">
-              <div className="switchToSignupText"> Don't have an account? </div>
-              <button className="switchToSignupButton" onClick={this.switchForm}>{switchText}</button>
+            <span className="switchToForm">
+              <div className="switchToFormText"> Don't have an account? </div>
+              <button className="switchToFormButton" onClick={this.switchForm}>{switchText}</button>
             </span>
           ): null }
           <button className="formActionButton" onClick={formAction}>{this.state.type}</button>
