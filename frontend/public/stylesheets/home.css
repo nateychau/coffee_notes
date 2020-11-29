@@ -2,9 +2,46 @@
   display: flex;
   flex-direction: column; 
   align-items: center;
+  position: relative;
+}
+
+#home-spacer{
+  width: 100%;
+  height: 15vh;
+  background-color: var(--secondary-bg-color);
 }
 
 .settings-btn{
   align-self: flex-end;
+  position: absolute; 
+  right: 20px;
+  top: 25px;
 }
 
+
+.bean-index{
+  position: relative;
+  top: -50px;
+}
+
+.bean-list{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.home > a:last-child{
+  position: fixed;
+  bottom: 20px;
+}
+
+#new-btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10vw;
+  width: 10vw;
+  color: #4e4c4c;
+  border-radius: 100%;
+  background-color: var(--light-text-color);
+  box-shadow: .5px .5px 5px .5px rgba(0, 0, 0, .34);
+}

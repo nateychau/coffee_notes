@@ -3,12 +3,23 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 5px 5px;
-  height: 25vh;
+  padding: 10px 0 10px 0;
+  height: 40vh;
 }
 
+.bean-item-container:nth-child(odd){
+  padding-left: 15px;
+  padding-right: 7.5px;
+}
+
+.bean-item-container:nth-child(even){
+  padding-left: 7.5px;
+  padding-right: 15px;
+}
+
+
 .bean-item{
-  padding: 5px 5px;
+  padding: 10px 10px;
   background-color: var(--accent);
   border-radius: 8px;
   display: flex;
@@ -16,4 +27,46 @@
   align-items: center;
   width: 100%;
   height: 100%;
+  box-shadow: .5px .5px 5px .5px rgba(0, 0, 0, .34);
+}
+
+.bean-item .img-container{
+  background-color: var(--light-text-color);
+  height: 50%;
+  width: 90%;
+}
+
+.bean-item .img-container img{
+  border-radius: 6px;
+  box-shadow: 1px 0 5px .5px rgba(0, 0, 0, .34);
+}
+
+.bean-item-text{
+  height: 50%;
+  width: 100%;
+  padding-top: 8px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.bean-item-text h2{
+  font-size: 15px;
+  color: var(--dark-text-color);
+}
+
+.bean-item-text h4{
+  font-size: 12px;
+}
+
+.bean-item-text div{
+  font-size: 10px;
+}
+
+.bean-item-text > * {
+  margin-bottom: 3px;
+}
+
+.bean-item-text div:last-child{
+  margin-bottom: 0;
 }
