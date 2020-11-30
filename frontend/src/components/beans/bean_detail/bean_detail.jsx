@@ -3,6 +3,7 @@ import * as API from "../../../util/api";
 import { BackButton } from "../../back";
 import { StaticDetail } from "./static_detail";
 import { BeanForm } from "../bean_form";
+// import { Header } from "../../header";
 
 export class BeanDetail extends React.Component {
   constructor(props) {
@@ -55,24 +56,13 @@ export class BeanDetail extends React.Component {
         handleStopEditing={this.handleStopEditing}
       />
     ) : (
-      <StaticDetail bean={this.state.bean} />
+      <StaticDetail
+        bean={this.state.bean}
+        handleDelete={this.handleDelete}
+        handleEdit={this.handleEdit}
+      />
     );
 
-    return (
-      <div>
-        {!this.state.editing ? <BackButton /> : null}
-        {component}
-        {!this.state.editing ? (
-          <div className="detail-btn-container">
-            <button onClick={this.handleDelete}>
-              <i className="fas fa-trash"></i>
-            </button>
-            <button onClick={this.handleEdit}>
-              <i className="fas fa-pen"></i>
-            </button>
-          </div>
-        ) : null}
-      </div>
-    );
+    return <div>{component}</div>;
   }
 }
