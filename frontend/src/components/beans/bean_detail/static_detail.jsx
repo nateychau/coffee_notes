@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { BackButton } from "../../back";
+import { shortName } from "../../../util/bean_util";
 
 export const StaticDetail = ({ bean, handleDelete, handleEdit }) => {
   const [more, setMore] = useState(false);
@@ -14,8 +15,15 @@ export const StaticDetail = ({ bean, handleDelete, handleEdit }) => {
         ></img>
       </div>
       <div className="detail-card">
-        <div className="detail-btn-container">
-          <button onBlur={() => setMore(false)} onClick={() => setMore(!more)}>
+        <div
+          onBlur={(e) => {
+            if (!e.currentTarget.contains(e.relatedTarget)) {
+              setMore(false);
+            }
+          }}
+          className="detail-btn-container"
+        >
+          <button onClick={() => setMore(!more)}>
             <i className="fas fa-ellipsis-h"></i>
           </button>
           {more ? (
