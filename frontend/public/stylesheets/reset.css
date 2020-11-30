@@ -5,12 +5,12 @@
 
 @font-face {
   font-family: neue-montreal;
-  src: url(../fonts/NeueMontreal-Regular.otf);
+  src: url(../fonts/NeueMontreal-FreeForPersonalUse/NeueMontreal-Regular.otf);
 }
 
 @font-face{
   font-family: neue-montreal;
-  src: url(../fonts/NeueMontreal-Bold.otf);
+  src: url(../fonts/NeueMontreal-FreeForPersonalUse/NeueMontreal-Bold.otf);
   font-weight: bold;
 }
 
@@ -100,6 +100,7 @@ video {
   border: 0;
   font-size: 100%;
   font-family: "neue-montreal";
+  -webkit-font-smoothing: antialiased;
   vertical-align: baseline;
   color: inherit;
   box-sizing: border-box;

@@ -5,6 +5,7 @@
   align-items: center;
   padding: 10px 0 10px 0;
   height: 40vh;
+  max-height: 200px;
 }
 
 .bean-item-container:nth-child(odd){
