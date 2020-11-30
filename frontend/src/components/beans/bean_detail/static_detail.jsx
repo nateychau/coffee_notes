@@ -15,18 +15,19 @@ export const StaticDetail = ({ bean, handleDelete, handleEdit }) => {
       </div>
       <div className="detail-card">
         <div className="detail-btn-container">
-          <button onClick={() => setMore(!more)}>
+          <button onBlur={() => setMore(false)} onClick={() => setMore(!more)}>
             <i className="fas fa-ellipsis-h"></i>
           </button>
-          {more ? 
-          <>
-          <button onClick={handleDelete}>
-            <i className="fas fa-trash"></i>
-          </button>
-          <button onClick={handleEdit}>
-            <i className="fas fa-pen"></i>
-          </button>
-          </> : null}
+          {more ? (
+            <>
+              <button onClick={handleDelete}>
+                <i className="fas fa-trash"></i>
+              </button>
+              <button onClick={handleEdit}>
+                <i className="fas fa-pen"></i>
+              </button>
+            </>
+          ) : null}
         </div>
         <div className="detail-text">
           <h2>Name</h2>
