@@ -10,6 +10,7 @@ export const createNewNote = (payload) => axios.post(`/api/notes`, payload);
 export const getUserNotes = (id) => axios.get(`/api/notes/user/${id}`);
 export const getNotesByBeanId = (id) => axios.get(`/api/notes/bean/${id}`);
 export const getNoteById = (id) => axios.get(`/api/notes/${id}`);
+export const getMostRecentNote = (id) => axios.get(`/api/notes/recent/${id}`);
 export const updateNote = (payload) => axios.patch(`/api/notes`, payload);
 export const deleteNote = (id) => axios.delete(`/apinotes/${id}`);
 

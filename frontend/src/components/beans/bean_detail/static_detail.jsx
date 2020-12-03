@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { BackButton } from "../../back";
 import { shortName } from "../../../util/bean_util";
 
-export const StaticDetail = ({ bean, handleDelete, handleEdit }) => {
+export const StaticDetail = ({ bean, notes, handleDelete, handleEdit }) => {
   const [more, setMore] = useState(false);
 
   return (
@@ -48,7 +48,16 @@ export const StaticDetail = ({ bean, handleDelete, handleEdit }) => {
           <div>{bean.roast}</div>
           <h2>Rating</h2>
           <div>{bean.rating}</div>
+          <h2> Brew Method </h2>
+          <div>{notes.brewMethod}</div>
+          <h2>Brew Time</h2>
+          <div>{notes.time}</div>
+          <h2> Coffee to Water Ratio </h2>
+          <div>{notes.ratio}</div>
+          <h2>Personal Notes</h2>
+          <div>{notes.notes}</div>
         </div>
+        {/* <button className="previousBrewEntries" onClick={}></button> */}
       </div>
     </div>
   );

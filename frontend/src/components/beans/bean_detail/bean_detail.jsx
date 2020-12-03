@@ -11,6 +11,7 @@ export class BeanDetail extends React.Component {
     this.state = {
       editing: false,
       bean: null,
+      notes: '',
     };
     this.handleDelete = this.handleDelete.bind(this);
     this.handleEdit = this.handleEdit.bind(this);
@@ -45,6 +46,12 @@ export class BeanDetail extends React.Component {
         this.setState({ bean: bean.data });
       })
       .catch((err) => console.log(err));
+
+    API.getMostRecentNote(this.props.match.params.id)
+    .then((notes) => {
+      this.setState({ notes: notes.data });
+    })
+    .catch((err) => console.log(err))
   }
 
   render() {
@@ -58,6 +65,7 @@ export class BeanDetail extends React.Component {
     ) : (
       <StaticDetail
         bean={this.state.bean}
+        notes={this.state.notes}
         handleDelete={this.handleDelete}
         handleEdit={this.handleEdit}
       />
