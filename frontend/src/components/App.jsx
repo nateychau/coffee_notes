@@ -6,6 +6,7 @@ import { Settings } from './settings';
 import { BeanForm } from './beans/bean_form';
 import { Home } from './home';
 import { BeanDetail } from './beans/bean_detail/bean_detail';
+import { NoteIndex } from './beans/bean_detail/note_index';
 
 
 export const App = () => (
@@ -16,6 +17,7 @@ export const App = () => (
         {/* <ProtectedRoute path="/beans/edit" type="edit" component={BeanForm} /> */}
         <ProtectedRoute path="/beans/new" type="new" component={BeanForm} />
         <ProtectedRoute path="/beans/:id" component={BeanDetail} />
+        <ProtectedRoute path="/notes/bean/:id" component={NoteIndex} />
         <ProtectedRoute path="/settings" component={Settings} />
         <ProtectedRoute exact path="/" component={Home} />
       </Switch>

@@ -59,6 +59,7 @@ router.get(
   '/bean/:bean_id',
   (req,res) => {
     Note.find({beanId: req.params.bean_id})
+    .sort({ updatedAt: 'desc' })
       .then(notes => res.json(notes))
       .catch(err => res.status(404).json(err));
   }
@@ -79,7 +80,7 @@ router.get(
   '/recent/:bean_id',
   (req,res) => {
     Note.find({beanId: req.params.bean_id})
-    .sort({ updatedAt: 'desc'})
+    .sort({ updatedAt: 'desc' })
     .then(notes => {
       res.json(notes[0]);
     })

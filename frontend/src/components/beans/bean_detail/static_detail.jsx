@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { BackButton } from "../../back";
 import { shortName } from "../../../util/bean_util";
+import { Link } from "react-router-dom";
 
 export const StaticDetail = ({ bean, notes, handleDelete, handleEdit }) => {
   const [more, setMore] = useState(false);
@@ -57,7 +58,9 @@ export const StaticDetail = ({ bean, notes, handleDelete, handleEdit }) => {
           <h2>Personal Notes</h2>
           <div>{notes.notes}</div>
         </div>
-        {/* <button className="previousBrewEntries" onClick={}></button> */}
+        <Link className="brewEntries" to={`/notes/bean/${notes.beanId}`}>
+          <div className="brewEntriesButton"> view all entries </div>
+        </Link>
       </div>
     </div>
   );
