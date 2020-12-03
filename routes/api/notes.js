@@ -59,6 +59,7 @@ router.get(
   '/bean/:bean_id',
   (req,res) => {
     Note.find({beanId: req.params.bean_id})
+    .sort({ updatedAt: 'desc' })
       .then(notes => res.json(notes))
       .catch(err => res.status(404).json(err));
   }
@@ -71,6 +72,19 @@ router.get(
     Note.findById(req.params.id)
       .then(note => res.json(note))
       .catch(err => res.status(404).json(err));
+  }
+);
+
+//get most recent note by bean id
+router.get(
+  '/recent/:bean_id',
+  (req,res) => {
+    Note.find({beanId: req.params.bean_id})
+    .sort({ updatedAt: 'desc' })
+    .then(notes => {
+      res.json(notes[0]);
+    })
+    .catch(err => res.status(404).json(err));
   }
 );
 
