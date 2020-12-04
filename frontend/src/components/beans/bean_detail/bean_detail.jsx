@@ -11,7 +11,7 @@ export class BeanDetail extends React.Component {
     this.state = {
       editing: false,
       bean: null,
-      notes: '',
+      notes: null,
     };
     this.handleDelete = this.handleDelete.bind(this);
     this.handleEdit = this.handleEdit.bind(this);

@@ -43,24 +43,47 @@
 .detail-text{
   width: 100%;
   display: flex;
-  flex-direction: column;
-  padding: 20px 40px;
+  padding: 0 20px;
 }
 
-.detail-text > *{
+.detail-text-left, .detail-text-right{
+  width: 50%;
+  display: flex;
+  flex-direction: column; 
+}
+
+.detail-text > div > *{
   width: 100%;
 }
 
-.detail-text h2{
+.bean-name{
+  padding-left: 20px;
+}
+
+h2.bean-name{
+  padding-top: 20px;
+}
+
+.detail-text h2, h2.bean-name{
   color: var(--accent);
   font-size: 14px;
   font-weight: 600;
   margin-bottom: 3px;
 }
 
-.detail-text div{
+.detail-text div, div.bean-name{
   color: var(--dark-text-color);
   font-size: 20px;
   font-weight: 600;
   margin-bottom: 8px;
+}
+
+.brewEntries{
+  display: flex;
+  justify-content: center;
+  padding: 5px 0;
+}
+
+.brewEntriesButton{
+  color: var(--accent);
 }
