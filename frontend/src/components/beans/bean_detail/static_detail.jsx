@@ -49,18 +49,24 @@ export const StaticDetail = ({ bean, notes, handleDelete, handleEdit }) => {
           <div>{bean.roast}</div>
           <h2>Rating</h2>
           <div>{bean.rating}</div>
-          <h2> Brew Method </h2>
-          <div>{notes.brewMethod}</div>
-          <h2>Brew Time</h2>
-          <div>{notes.time}</div>
-          <h2> Coffee to Water Ratio </h2>
-          <div>{notes.ratio}</div>
-          <h2>Personal Notes</h2>
-          <div>{notes.notes}</div>
+          {notes ? (
+            <>
+              <h2> Brew Method </h2>
+              <div>{notes.brewMethod}</div>
+              <h2>Brew Time</h2>
+              <div>{notes.time}</div>
+              <h2> Coffee to Water Ratio </h2>
+              <div>{notes.ratio}</div>
+              <h2>Personal Notes</h2>
+              <div>{notes.notes}</div>
+            </>
+          ) : null}
         </div>
-        <Link className="brewEntries" to={`/notes/bean/${notes.beanId}`}>
-          <div className="brewEntriesButton"> view all entries </div>
-        </Link>
+        {notes ? (
+          <Link className="brewEntries" to={`/notes/bean/${notes.beanId}`}>
+            <div className="brewEntriesButton"> view all entries </div>
+          </Link>
+        ) : null}
       </div>
     </div>
   );

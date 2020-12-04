@@ -99,6 +99,7 @@ router.get(
   '/user/:user_id', 
   (req, res) => {
     Bean.find({userId: req.params.user_id})
+      .sort({ createdAt: 'desc' })
       .then(beans => res.json(beans))
       .catch(err => res.status(404).json(err));
   }

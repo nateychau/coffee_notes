@@ -8,7 +8,7 @@ export const Home = () => {
     return (
       <div className="home">
         <Header />
-        <div id="home-spacer"></div>
+        {/* <div id="home-spacer"></div> */}
         <Link to="/settings" className="settings-btn">
           <button>
             <i className="fas fa-cog"></i>

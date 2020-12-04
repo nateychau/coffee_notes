@@ -1,6 +1,7 @@
 import React from "react";
 import * as API from "../../util/api";
 import { BeanIndexItem } from "./bean_index_item";
+import { CurrentBeanItem } from "./current_bean";
 
 export class BeanIndex extends React.Component {
   constructor(props) {
@@ -21,7 +22,9 @@ export class BeanIndex extends React.Component {
 
   render() {
     const beanList = this.state.beans.length ? this.state.beans.map((bean, i) => {
-      return <BeanIndexItem key={i} bean={bean} />
+      if(i === 0){
+        return <CurrentBeanItem key={i} bean={bean}/>
+      } else return <BeanIndexItem key={i} bean={bean} />
     }) : [];
     return (
       <div className="bean-index">
