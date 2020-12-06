@@ -1,15 +1,36 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
-export const NoteIndexItem = ({ note }) => (
-  <li className="note-item-container">
-    <div className="note-container">
-      <div className="note-item-text">
-        <div>{note.brewMethod}</div>
-        <div>{note.time}</div>
-        <div>{note.ratio}</div>
-        <div>{note.notes}</div>
+const fixTimeStamp = (note) => {  
+  let timeStamp = note.updatedAt;
+  return timeStamp.slice(0,9);
+}
+
+export const NoteIndexItem = ({ note }) => {
+  return (
+    <li className="note-item-container">
+      <div className="note-container">
+        <div className="note-wrapper">
+          <div className="note-item-header"> Date </div>
+          <div className="note-item-text">{fixTimeStamp(note)}</div>
+        </div>
+        <div className="note-wrapper">
+          <div className="note-item-header"> Brew Method </div>
+          <div className="note-item-text">{note.brewMethod}</div>
+        </div>
+        <div className="note-wrapper">
+          <div className="note-item-header"> Brew Time </div>
+          <div className="note-item-text">{note.time}</div>
+        </div> 
+        <div className="note-wrapper">
+          <div className="note-item-header"> Coffee to Water Ratio </div>
+          <div className="note-item-text">{note.ratio}</div>
+        </div>
+        <div className="note-wrapper">
+          <div className="note-item-header"> Notes </div>
+          <div className="note-item-text">{note.notes}</div>
+        </div>
       </div>
-    </div>
-  </li>
-);
+    </li>
+  );
+}
+

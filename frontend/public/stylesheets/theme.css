@@ -1,6 +1,6 @@
 :root {
   --primary-bg-color: #a34a28;
-  --secondary-bg-color: #211717;
+  --secondary-bg-color: #402727;
   --accent: #f58b54;
 
   --light-text-color:  #dfddc7;
@@ -12,7 +12,7 @@
 }
 
 .main{
-  background-color: var(--primary-bg-color);
+  background-color: var(--secondary-bg-color);
   color: var(--light-text-color);
   width: 100%;
   min-height: 100vh;
