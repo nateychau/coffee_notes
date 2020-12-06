@@ -1,0 +1,36 @@
+.note-item-container {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 0 10px 0;
+}
+
+.note-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #ffffff;
+  border-radius: 15px;
+}
+
+.note-container:last-child {
+  padding-bottom: 5px;
+}
+
+.note-item-header {
+  width: 50vw;
+  display: flex;
+  flex-wrap: wrap;
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.note-item-text {
+  display: flex;
+  color: var(--dark-text-color);
+  font-size: 20px;
+  font-weight: 600;
+}
+

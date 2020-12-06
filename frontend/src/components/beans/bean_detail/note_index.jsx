@@ -1,7 +1,6 @@
 import React from "react";
 import * as API from "../../../util/api";
 import { NoteIndexItem } from "./note_index_item";
-// import { BackButton } from "../../back";
 import { Link } from "react-router-dom";
 
 export class NoteIndex extends React.Component {
@@ -28,8 +27,8 @@ export class NoteIndex extends React.Component {
       <div>
         <Link to={`/beans/${this.props.match.params.id}`}>
           <div className="backButton"> go back </div>
-          <br></br>
         </Link>
+        <h1> Brew Entries </h1>
         <div className="notes-index">
           <ul className="notes-list">
             {notesList}
