@@ -1,5 +1,5 @@
 .note-item-container {
-  width: 100vw;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -7,19 +7,26 @@
 }
 
 .note-container {
-  width: 100%;
+  width: 90%;
   display: flex;
   flex-wrap: wrap;
   background-color: #ffffff;
   border-radius: 15px;
+  box-shadow: .5px .5px 5px .5px rgba(0, 0, 0, .5);
+
 }
 
-.note-container:last-child {
-  padding-bottom: 5px;
+.note-wrapper {
+  padding: 15px 0 0 10px;
+  width: 50%;
+}
+
+.note-wrapper:last-child {
+  width: 100%;
+  padding-bottom: 10px;
 }
 
 .note-item-header {
-  width: 50vw;
   display: flex;
   flex-wrap: wrap;
   color: var(--accent);
