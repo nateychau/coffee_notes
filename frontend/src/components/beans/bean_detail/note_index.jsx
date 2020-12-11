@@ -1,14 +1,16 @@
 import React from "react";
 import * as API from "../../../util/api";
 import { NoteIndexItem } from "./note_index_item";
-import { Link } from "react-router-dom";
+import { Link, Route } from "react-router-dom";
 import { Header } from '../../header';
+import { NoteForm } from '../bean_detail/note_form';
 
 export class NoteIndex extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       notes: [],
+      beanId: ''
     }
   }
 
@@ -16,6 +18,7 @@ export class NoteIndex extends React.Component {
     API.getNotesByBeanId(this.props.match.params.id)
       .then((notes) => {
         this.setState({notes: notes.data});
+        this.setState({beanId: this.state.notes[0].beanId})
       })
       .catch((err) => console.log(err));
   }
@@ -32,6 +35,18 @@ export class NoteIndex extends React.Component {
             <div className="backButton"> go back </div>
           </Link>
           <div className="brewEntriesNotes"> Brew Entries </div>
+          {/* <Route path="/notes/new" beanId={this.state.beanId} /> */}
+          <Link 
+            to={{
+              pathname: "/notes/new",
+              state: {
+                beanId: this.state.beanId
+              }  
+            }}>
+            <button id="addNewBrewEntry">
+              <i className="fas fa-plus"></i>
+            </button>
+          </Link>
         </div>
         <div className="notes-index">
           <ul className="notes-list">
