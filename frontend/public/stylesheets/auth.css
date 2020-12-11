@@ -12,6 +12,7 @@ input {
 .auth-body{
   justify-content: flex-end;
   height: 100vh;
+  background-color: var(--primary-bg-color);
 }
 
 .auth-form{
