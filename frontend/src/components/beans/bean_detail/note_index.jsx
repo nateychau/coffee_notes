@@ -18,7 +18,7 @@ export class NoteIndex extends React.Component {
     API.getNotesByBeanId(this.props.match.params.id)
       .then((notes) => {
         this.setState({notes: notes.data});
-        this.setState({beanId: this.state.notes[0].beanId})
+        this.setState({beanId: this.props.match.params.id})
       })
       .catch((err) => console.log(err));
   }
