@@ -72,7 +72,7 @@ class NoteFormComponent extends React.Component {
             <input
               onChange={this.handleChange}
               type="text"
-              name="datratioe"
+              name="ratio"
             ></input>
           </div>
           <div className="note-field">
