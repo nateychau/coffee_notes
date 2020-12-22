@@ -10,8 +10,10 @@ export class NoteIndex extends React.Component {
     super(props);
     this.state = {
       notes: [],
-      beanId: ''
-    }
+      beanId: '',
+    };
+    // this.handleDelete = this.handleDelete.bind(this);
+    this.handleEdit = this.handleEdit.bind(this);
   }
 
   componentDidMount() {
@@ -19,13 +21,33 @@ export class NoteIndex extends React.Component {
       .then((notes) => {
         this.setState({notes: notes.data});
         this.setState({beanId: this.props.match.params.id})
+
+        console.log(notes.data);
       })
       .catch((err) => console.log(err));
   }
 
+  // handleDelete(note) {
+  //   console.log(note);
+  //   API.deleteNote(note._id)
+  //     .then((res) => {
+  //       console.log(res);
+  //     })
+  //     .catch((err) => console.log(err));
+  // }
+
+  handleEdit(note) {
+    console.log(note);
+  }
+
   render() {
     const notesList = this.state.notes.length ? this.state.notes.map((note, i) => {
-      return <NoteIndexItem key={i} note={note} />
+      return <NoteIndexItem 
+        key={i} 
+        note={note} 
+        handleDelete={this.handleDelete} 
+        handleEdit={this.handleEdit}
+      />
     }) : [];
     return (
       <div>

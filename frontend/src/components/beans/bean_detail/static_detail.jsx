@@ -65,7 +65,18 @@ export const StaticDetail = ({ bean, notes, handleDelete, handleEdit }) => {
           ) : 
           (
             <div className="detail-text-right no-note">
-              No entries yet
+              <div> No entries yet </div>
+              <Link
+                to={{
+                  pathname: "/notes/new",
+                  state: {
+                    beanId: bean._id
+                  }
+                }}>
+                <button>
+                  Add a Brew Entry
+                </button>
+              </Link>
             </div>
           )}
         </div>
