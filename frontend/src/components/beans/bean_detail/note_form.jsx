@@ -2,20 +2,28 @@ import React from "react";
 import * as API from "../../../util/api";
 import { withRouter, Link } from "react-router-dom";
 
+const defaultState = {
+  brewMethod: "",
+  time: "",
+  ratio: "",
+  notes: "",
+  beanId: "",
+}
+
 class NoteFormComponent extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      date: "",
-      brewMethod: "",
-      time: "",
-      ratio: "",
-      notes: "",
-      beanId: this.props.location.state.beanId,
-    }
+    this.defaultState = this.props.location.state.note ?
+    {...this.props.location.state.note} : {...defaultState}
+    this.state = this.defaultState;
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
 
+  componentDidMount() {
+    if(this.props.location.state.beanId) {
+      this.setState({beanId: this.props.location.state.beanId})
+    }
   }
 
   handleChange(e) {
@@ -29,15 +37,23 @@ class NoteFormComponent extends React.Component {
       brewMethod: this.state.brewMethod,
       ratio: this.state.ratio,
       time: this.state.time,
-      date: this.state.date,
       notes: this.state.notes,
     }
-
-    API.createNewNote(newNote)
-      .then(() =>{
-        console.log('new note successfully added')
+    if(this.props.location.state.note) {
+      newNote.id = this.state._id;
+      API.updateNote(newNote)
+      .then(() => {
+        console.log('new note succesfully updated');
       })
       .catch((err) => console.log(err));
+    } else {
+      API.createNewNote(newNote)
+        .then(() =>{
+          console.log('new note successfully added');
+        })
+        .catch((err) => console.log(err));
+    }
+    this.props.history.push(`/notes/bean/${this.state.beanId}`);
   }
 
   render() {
@@ -57,6 +73,7 @@ class NoteFormComponent extends React.Component {
               onChange={this.handleChange}
               type="text"
               name="brewMethod"
+              value={this.state.brewMethod}
             ></input>
           </div>
           <div className="note-field">
@@ -65,6 +82,7 @@ class NoteFormComponent extends React.Component {
               onChange={this.handleChange}
               type="text"
               name="time"
+              value={this.state.time}
             ></input>
           </div>
           <div className="note-field">
@@ -73,6 +91,7 @@ class NoteFormComponent extends React.Component {
               onChange={this.handleChange}
               type="text"
               name="ratio"
+              value={this.state.ratio}
             ></input>
           </div>
           <div className="note-field">
@@ -81,6 +100,7 @@ class NoteFormComponent extends React.Component {
               onChange={this.handleChange}
               type="text"
               name="notes"
+              value={this.state.notes}
             ></input>
           </div>
         </form>
