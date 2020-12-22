@@ -25,14 +25,13 @@ export class NoteIndex extends React.Component {
       .catch((err) => console.log(err));
   }
 
-  // handleDelete(note) {
-  //   console.log(note);
-  //   API.deleteNote(note._id)
-  //     .then((res) => {
-  //       console.log(res);
-  //     })
-  //     .catch((err) => console.log(err));
-  // }
+  handleDelete(note) {
+    API.deleteNote(note._id)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => console.log(err));
+  }
 
   render() {
     const notesList = this.state.notes.length ? this.state.notes.map((note, i) => {

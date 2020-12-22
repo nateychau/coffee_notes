@@ -6,7 +6,7 @@ const fixTimeStamp = (note) => {
   return timeStamp.slice(0,9);
 }
 
-export const NoteIndexItem = ({ note }) => {
+export const NoteIndexItem = ({ note, handleDelete }) => {
   const [more, setMore] = useState(false);
 
   return (
@@ -29,9 +29,9 @@ export const NoteIndexItem = ({ note }) => {
             </button>
             {more ? (
               <>
-                {/* <button onClick={handleDelete(note)}>
+                <button onClick={() => {handleDelete(note)}}>
                   <i className="fas fa-trash"></i>
-                </button> */}
+                </button>
                   <Link 
                     to={{
                       pathname: "/notes/new",
