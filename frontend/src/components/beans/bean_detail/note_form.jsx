@@ -31,9 +31,6 @@ class NoteFormComponent extends React.Component {
   }
 
   handleSubmit() {
-
-    console.log(this.state);
-
     const newNote = {
       userId: window.currentUser.id,
       beanId: this.state.beanId,
@@ -43,6 +40,7 @@ class NoteFormComponent extends React.Component {
       notes: this.state.notes,
     }
     if(this.props.location.state.note) {
+      newNote.id = this.state._id;
       API.updateNote(newNote)
       .then(() => {
         console.log('new note succesfully updated');
@@ -55,7 +53,7 @@ class NoteFormComponent extends React.Component {
         })
         .catch((err) => console.log(err));
     }
-    // this.props.history.push(`/notes/bean/${this.state.beanId}`);
+    this.props.history.push(`/notes/bean/${this.state.beanId}`);
   }
 
   render() {

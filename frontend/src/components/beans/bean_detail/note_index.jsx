@@ -12,8 +12,7 @@ export class NoteIndex extends React.Component {
       notes: [],
       beanId: '',
     };
-    // this.handleDelete = this.handleDelete.bind(this);
-    this.handleEdit = this.handleEdit.bind(this);
+    // this.handleDelete = this.handleDelete.bind(this);  
   }
 
   componentDidMount() {
@@ -21,8 +20,7 @@ export class NoteIndex extends React.Component {
       .then((notes) => {
         this.setState({notes: notes.data});
         this.setState({beanId: this.props.match.params.id})
-
-        console.log(notes.data);
+        // console.log(notes.data);
       })
       .catch((err) => console.log(err));
   }
@@ -35,10 +33,6 @@ export class NoteIndex extends React.Component {
   //     })
   //     .catch((err) => console.log(err));
   // }
-
-  handleEdit(note) {
-    console.log(note);
-  }
 
   render() {
     const notesList = this.state.notes.length ? this.state.notes.map((note, i) => {
@@ -61,9 +55,9 @@ export class NoteIndex extends React.Component {
           <Link 
             to={{
               pathname: "/notes/new",
-              state: {
-                beanId: this.state.beanId
-              }  
+              // state: {
+              //   beanId: this.state.beanId
+              // }  
             }}>
             <button id="addNewBrewEntry">
               <i className="fas fa-plus"></i>

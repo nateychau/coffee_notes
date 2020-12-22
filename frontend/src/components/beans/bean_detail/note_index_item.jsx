@@ -6,7 +6,7 @@ const fixTimeStamp = (note) => {
   return timeStamp.slice(0,9);
 }
 
-export const NoteIndexItem = ({ note, handleDelete, handleEdit }) => {
+export const NoteIndexItem = ({ note }) => {
   const [more, setMore] = useState(false);
 
   return (
@@ -39,7 +39,7 @@ export const NoteIndexItem = ({ note, handleDelete, handleEdit }) => {
                         note: note
                       }
                     }}>
-                      <button onClick={handleEdit(note)}>
+                      <button>
                         <i className="fas fa-pen"></i>
                       </button>
                   </Link>
