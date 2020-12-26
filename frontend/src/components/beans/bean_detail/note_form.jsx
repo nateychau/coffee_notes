@@ -1,6 +1,7 @@
 import React from "react";
 import * as API from "../../../util/api";
 import { withRouter, Link } from "react-router-dom";
+import { Header } from '../../header';
 
 const defaultState = {
   brewMethod: "",
@@ -65,64 +66,68 @@ class NoteFormComponent extends React.Component {
   render() {
     return (
       <div>
-        <Link
-          to={`/notes/bean/${this.state.beanId}`}
-        >
-          <button>
-            <i className="fas fa-angle-left"></i>
-          </button>
-        </Link>
-        <form>
-          <div className="brew-entry-form">
-            <div className="note-container">
-              {/* <div className="note-wrapper">
-                <div className="note-item-header"> Date </div>
-                <div className="note-input-text timestamp">{fixTimeStamp(this.state.updatedAt)}</div>
-              </div> */}
-              <div className="note-wrapper">
-                <div className="note-item-header"> Brew Method </div>
-                <input
-                  className="note-input-text"
-                  onChange={this.handleChange}
-                  type="text"
-                  name="brewMethod"
-                  value={this.state.brewMethod}
-                ></input>
-              </div>   
-              <div className="note-wrapper">
-                <div className="note-item-header"> Brew Time </div>
-                <input
-                  className="note-input-text"
-                  onChange={this.handleChange}
-                  type="text"
-                  name="time"
-                  value={this.state.time}
-                ></input>
-              </div>
-              <div className="note-wrapper">
-                <div className="note-item-header"> Coffee to Water Ratio </div>
-                <input
-                  className="note-input-text"
-                  onChange={this.handleChange}
-                  type="text"
-                  name="ratio"
-                  value={this.state.ratio}
-                ></input>
-              </div>
-              <div className="note-wrapper">
-                <div className="note-item-header"> Notes </div>
-                <input
-                  onChange={this.handleChange}
-                  className="note-input-text my-notes"
-                  type="text"
-                  name="notes"
-                  value={this.state.notes}
-                ></input>
+        <Header />
+        <div className="note-index-page">
+          <Link
+            to={`/notes/bean/${this.state.beanId}`}
+          >
+            <button>
+              <i className="fas fa-angle-left"></i>
+            </button>
+          </Link>
+          <div className="brewEntriesNotes"> Brew Entries </div>
+          <button onClick={this.handleSubmit}> finished </button>
+          <form>
+            <div className="brew-entry-form">
+              <div className="note-container">
+                {/* <div className="note-wrapper">
+                  <div className="note-item-header"> Date </div>
+                  <div className="note-input-text timestamp">{fixTimeStamp(this.state.updatedAt)}</div>
+                </div> */}
+                <div className="note-wrapper">
+                  <div className="note-item-header"> Brew Method </div>
+                  <input
+                    className="note-input-text"
+                    onChange={this.handleChange}
+                    type="text"
+                    name="brewMethod"
+                    value={this.state.brewMethod}
+                  ></input>
+                </div>   
+                <div className="note-wrapper">
+                  <div className="note-item-header"> Brew Time </div>
+                  <input
+                    className="note-input-text"
+                    onChange={this.handleChange}
+                    type="text"
+                    name="time"
+                    value={this.state.time}
+                  ></input>
+                </div>
+                <div className="note-wrapper">
+                  <div className="note-item-header"> Coffee to Water Ratio </div>
+                  <input
+                    className="note-input-text"
+                    onChange={this.handleChange}
+                    type="text"
+                    name="ratio"
+                    value={this.state.ratio}
+                  ></input>
+                </div>
+                <div className="note-wrapper">
+                  <div className="note-item-header"> Notes </div>
+                  <input
+                    onChange={this.handleChange}
+                    className="note-input-text my-notes"
+                    type="text"
+                    name="notes"
+                    value={this.state.notes}
+                  ></input>
+                </div>
               </div>
             </div>
-          </div>
-        </form>
-        <button onClick={this.handleSubmit}> submit </button>
+          </form>
+        </div>
       </div>
     );
   }
