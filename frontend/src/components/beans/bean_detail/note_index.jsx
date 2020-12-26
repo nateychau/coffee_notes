@@ -54,11 +54,11 @@ export class NoteIndex extends React.Component {
           <Link 
             to={{
               pathname: "/notes/new",
-              // state: {
-              //   beanId: this.state.beanId
-              // }  
+              state: {
+                beanId: this.state.beanId
+              }  
             }}>
-            <button id="addNewBrewEntry">
+            <button className="addNewBrewEntry">
               <i className="fas fa-plus"></i>
             </button>
           </Link>
