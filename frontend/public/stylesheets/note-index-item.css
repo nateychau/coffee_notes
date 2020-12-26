@@ -41,3 +41,19 @@
   font-weight: 600;
 }
 
+.options-detail {
+  display: flex;
+  flex-direction: column; 
+  align-self: flex-end; 
+  position: absolute;
+  right: 25px;
+}
+
+.options-detail button {
+  padding: 5px 5px;
+  border-radius: 100%;
+  background-color: var(--secondary-bg-color); 
+  color: var(--accent);
+  margin-bottom: 5px;
+}
+

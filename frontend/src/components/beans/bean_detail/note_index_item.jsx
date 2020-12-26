@@ -16,13 +16,14 @@ export const NoteIndexItem = ({ note, handleDelete }) => {
           <div className="note-item-header"> Date </div>
           <div className="note-item-text">{fixTimeStamp(note)}</div>
         </div>
-        <div className="optionButton">
+        <div>
           <div
             onBlur={(e) => {
               if(!e.currentTarget.contains(e.relatedTarget)) {
               setMore(false);
               }
             }}
+            className="options-detail"
           >
             <button onClick={() => setMore(!more)}>
               <i className="fas fa-ellipsis-h"></i>
