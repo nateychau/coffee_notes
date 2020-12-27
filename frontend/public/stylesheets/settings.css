@@ -31,7 +31,7 @@
   margin-bottom: 10px;
 }
 
-.settings-container button{
+.settings-container .logoutButton{
   color: var(--primary-bg-color);
   background-color: var(--dark-text-color);
   width: 33%;
@@ -39,4 +39,9 @@
   align-self: center;
   position: fixed;
   bottom: 20px;
+}
+
+.spotifyButton {
+  position: absolute;
+  bottom: 90px;
 }
