@@ -20,12 +20,12 @@ const bodyParser = require('body-parser'); //middleware for json parsing
 //user auth
 const users = require("./routes/api/users");
 const passport = require('passport'); //user auth
-require("./config/passport")(passport, port);
+require("./config/passport")(passport);
 
-app.use(cors()); //for any cors issues we might run into with spotify api
 app.use(bodyParser.urlencoded({ extended: false })); 
 app.use(bodyParser.json()); //parse json sent to frontend
 app.use(passport.initialize());
+app.use(cors()); //for any cors issues we might run into with spotify api
 // app.use(passport.session());
 
 //api routes

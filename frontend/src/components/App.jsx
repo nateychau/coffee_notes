@@ -22,6 +22,10 @@ export const App = () => (
         <ProtectedRoute path="/notes/bean/:id" component={NoteIndex} />
         <ProtectedRoute path="/settings" component={Settings} />
         <ProtectedRoute exact path="/" component={Home} />
+        <ProtectedRoute path="/spotify/login" component={() => {
+          window.location.href="http://localhost:5000/api/spotify/login";
+          return null;
+        }}/>
       </Switch>
     </div>
   </HashRouter>
