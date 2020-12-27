@@ -36,7 +36,7 @@
   padding: 8px 8px;
   border-radius: 100%;
   background-color: var(--secondary-bg-color);
-  color: var(--light-text-color);
+  color: var(--accent);
   margin-bottom: 5px;
 }
 

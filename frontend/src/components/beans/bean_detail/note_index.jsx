@@ -8,6 +8,9 @@ import { NoteForm } from '../bean_detail/note_form';
 export class NoteIndex extends React.Component {
   constructor(props) {
     super(props);
+
+    console.log(this.props);
+
     this.state = {
       notes: [],
       beanId: '',
@@ -20,7 +23,6 @@ export class NoteIndex extends React.Component {
       .then((notes) => {
         this.setState({notes: notes.data});
         this.setState({beanId: this.props.match.params.id})
-        // console.log(notes.data);
       })
       .catch((err) => console.log(err));
   }
@@ -29,6 +31,7 @@ export class NoteIndex extends React.Component {
     API.deleteNote(note._id)
       .then((res) => {
         console.log(res);
+        window.location.reload();
       })
       .catch((err) => console.log(err));
   }
@@ -43,7 +46,7 @@ export class NoteIndex extends React.Component {
       />
     }) : [];
     return (
-      <div>
+      <div className="note-index-page">
         <Header />
         <div className="notes-container"> 
           <Link to={`/beans/${this.props.match.params.id}`}>
