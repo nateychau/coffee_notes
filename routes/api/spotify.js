@@ -69,7 +69,10 @@ router.get('/callback', (req,res) => {
       const filter = { _id: process.env.USER_ID};
       const accessToken = { accessToken: process.env.SPOTIFY_ACCESS_TOKEN };
       User.findOneAndUpdate(filter, { $set: accessToken}, { new: true, useFindAndModify: false })
-      .then(user => console.log(user))
+      .then(user => {
+        console.log('updated user');
+        console.log(user);
+      })
       .catch(err=> {
         console.log('error updating user')
         console.log(err);
@@ -84,12 +87,11 @@ router.get('/callback', (req,res) => {
 
 router.get('/getMe', (req,res) => {
   spotifyApi.setAccessToken(process.env.SPOTIFY_ACCESS_TOKEN);
-  (async () => {
-    const me = await spotifyApi.getMe();
-    console.log(me);
-  })().catch(e => {
-    console.error(e);
-  });
+  spotifyApi.getMe()
+  .then((user) => {
+    return res.json(user.body);
+  })
+  .catch(err => { console.log(err)});
 });
 
 module.exports = router;

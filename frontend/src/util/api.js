@@ -23,3 +23,4 @@ export const deleteBean = (id) => axios.delete(`/api/beans/${id}`);
 export const getByFilter = (filterType, filter) => axios.get(`/api/beans/${filterType}/${filter}`);
 
 //api spotify routes
+export const getSpotifyUser = () => axios.get(`/api/spotify/getMe`);
