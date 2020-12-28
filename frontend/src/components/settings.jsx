@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom"
-import * as API from "../util/api";
 import { logoutUser } from "../util/session_api_util";
 import { BackButton } from "./back";
 import { Header } from "./header";
@@ -12,21 +11,9 @@ export class Settings extends React.Component {
     this.state = {
       spotifyName: '',
     }
-    this.signinSpotify = this.signinSpotify.bind(this);
-
+    // this.signinSpotify = this.signinSpotify.bind(this);
   }
-
-  signinSpotify() {
-    // const redirectUrl = API.signinSpotify();
-    console.log('sign in spotify');
-    // console.log(redirectUrl);
-  }
-
-  logoutSpotify() {
-    // API.logoutSpotify();
-    console.log('log out spotify');
-  }
-
+  
   render() {
     return (
       <>
@@ -43,12 +30,11 @@ export class Settings extends React.Component {
           <div className="settings-field">{window.currentUser.email}</div>
           <Link
             to={{
-              pathname:"/spotify/login"
+              pathname:`/spotify/login`
             }}
           >
-            <button className="spotifyButton"> spotify sign in </button>
+            <button className="spotifyButton"> Connect your Spotify Account </button>
           </Link>
-          {/* <button className="spotifyButton2" onClick={this.signinSpotify}> spotify log in </button> */}
           <button className="logoutButton" onClick={logoutUser}>Log Out</button>
         </div>
       </>

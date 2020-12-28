@@ -23,7 +23,7 @@ export const App = () => (
         <ProtectedRoute path="/settings" component={Settings} />
         <ProtectedRoute exact path="/" component={Home} />
         <ProtectedRoute path="/spotify/login" component={() => {
-          window.location.href="http://localhost:5000/api/spotify/login";
+          window.location.href=`http://localhost:5000/api/spotify/login/${window.currentUser.id}`;
           return null;
         }}/>
       </Switch>

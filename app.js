@@ -2,6 +2,8 @@
 const express = require("express");
 const app = express();
 
+const dotenv = require('dotenv');
+dotenv.config();
 const port = process.env.PORT || 5000; //production/development ports
 app.listen(port, () => console.log(`Server is running on port ${port}`));
 
@@ -26,7 +28,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json()); //parse json sent to frontend
 app.use(passport.initialize());
 app.use(cors()); //for any cors issues we might run into with spotify api
-// app.use(passport.session());
 
 //api routes
 const notes = require("./routes/api/notes");

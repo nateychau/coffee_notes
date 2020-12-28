@@ -96,9 +96,6 @@ router.patch(
     const filter = { _id: req.body.id };
     const update = keysFromReq(req);
 
-    console.log(filter);
-    console.log(update);
-
     Note.findOneAndUpdate(filter, update, { new: true, useFindAndModify: false })
       .then(note => {
         res.json(note);
