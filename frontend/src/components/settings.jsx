@@ -8,12 +8,32 @@ import { Header } from "./header";
 export class Settings extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      songName: '',
+      song: '',
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.searchSong = this.searchSong.bind(this);
+
+  }
+
+  handleChange(e) {
+    this.setState({ [e.target.name]: e.target.value })
+  }
+
+  searchSong() {
+    console.log(this.state);
+    API.searchSpotifySong(this.state.songName).then((song) => {
+      this.setState({ song: song.data.tracks.items});
+      console.log(this.state);
+    })
+    .catch((err) => console.log(err));
   }
 
   componentDidMount() {  
     API.getSpotifyUser().then((user) => {
       this.setState({...user.data});
+      console.log(this.state);
     })
     .catch((err) => console.log(err));
   }
@@ -41,7 +61,13 @@ export class Settings extends React.Component {
           >
             <button className="spotifyButton"> Connect your Spotify Account </button>
           </Link>
-          <button className="spotifyButton2" onClick={this.getSpotifyUser}>Get me</button>
+          <input
+            onChange={this.handleChange}
+            type="text"
+            name="songName"
+            value={this.state.songName}
+          ></input>
+          <button className="spotifyButton2" onClick={this.searchSong}> query song</button>
           <button className="logoutButton" onClick={logoutUser}>Log Out</button>
         </div>
       </>

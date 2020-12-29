@@ -24,3 +24,4 @@ export const getByFilter = (filterType, filter) => axios.get(`/api/beans/${filte
 
 //api spotify routes
 export const getSpotifyUser = () => axios.get(`/api/spotify/getMe`);
+export const searchSpotifySong = (id) => axios.get(`/api/spotify/search/songs/${id}`);

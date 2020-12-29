@@ -7,6 +7,7 @@ const axios = require("axios");
 const keys = require("../../config/keys");
 const User = require('../../models/User');
 const SpotifyWebApi = require("spotify-web-api-node");
+const { route } = require("./beans");
 
 const scopes = [
   'user-read-playback-state',
@@ -93,5 +94,16 @@ router.get('/getMe', (req,res) => {
   })
   .catch(err => { console.log(err)});
 });
+
+router.get('/search/songs/:id', (req,res) => {
+  const song = (req.params.id);
+  spotifyApi.setAccessToken(process.env.SPOTIFY_ACCESS_TOKEN);
+  spotifyApi.searchTracks(song)
+  .then(function(data) {
+    console.log(`Search by ${song}`, data.body);
+    return res.json(data.body);
+  })
+  .catch(err => { console.log(err)});
+})
 
 module.exports = router;
