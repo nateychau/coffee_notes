@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 export const StaticDetail = ({ bean, notes, handleDelete, handleEdit }) => {
   const [more, setMore] = useState(false);
 
+  console.log(bean);
+
   return (
     <div className="static-detail">
       <BackButton />
@@ -80,6 +82,27 @@ export const StaticDetail = ({ bean, notes, handleDelete, handleEdit }) => {
             </div>
           )}
         </div>
+        { bean.song ? (
+        <div className="spotifyContainer">
+          <div>
+
+          </div>
+        </div>
+        ) : (
+          <Link
+            to={{
+              pathname: `/spotify/bean/${bean._id}`,
+              state: {
+                bean: bean
+              }
+            }}
+          >
+            <div> 
+              { `Connect a song for ` } 
+              <span>{`${bean.name}`}</span>   
+            </div>
+          </Link>
+        )}
         {notes ? (
           <Link className="brewEntries" to={`/notes/bean/${notes.beanId}`}>
             <div className="brewEntriesButton"> view all entries </div>

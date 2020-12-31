@@ -12,22 +12,6 @@ export class Settings extends React.Component {
       songName: '',
       song: '',
     };
-    this.handleChange = this.handleChange.bind(this);
-    this.searchSong = this.searchSong.bind(this);
-
-  }
-
-  handleChange(e) {
-    this.setState({ [e.target.name]: e.target.value })
-  }
-
-  searchSong() {
-    console.log(this.state);
-    API.searchSpotifySong(this.state.songName).then((song) => {
-      this.setState({ song: song.data.tracks.items});
-      console.log(this.state);
-    })
-    .catch((err) => console.log(err));
   }
 
   componentDidMount() {  
@@ -61,13 +45,6 @@ export class Settings extends React.Component {
           >
             <button className="spotifyButton"> Connect your Spotify Account </button>
           </Link>
-          <input
-            onChange={this.handleChange}
-            type="text"
-            name="songName"
-            value={this.state.songName}
-          ></input>
-          <button className="spotifyButton2" onClick={this.searchSong}> query song</button>
           <button className="logoutButton" onClick={logoutUser}>Log Out</button>
         </div>
       </>

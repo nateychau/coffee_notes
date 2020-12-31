@@ -8,6 +8,7 @@ import { NoteForm } from './beans/bean_detail/note_form';
 import { Home } from './home';
 import { BeanDetail } from './beans/bean_detail/bean_detail';
 import { NoteIndex } from './beans/bean_detail/note_index';
+import { SongSearch } from './beans/bean_detail/song_search';
 
 
 export const App = () => (
@@ -22,6 +23,7 @@ export const App = () => (
         <ProtectedRoute path="/notes/bean/:id" component={NoteIndex} />
         <ProtectedRoute path="/settings" component={Settings} />
         <ProtectedRoute exact path="/" component={Home} />
+        <ProtectedRoute path="/spotify/bean/:id" component={SongSearch}/>
         <ProtectedRoute path="/spotify/login" component={() => {
           window.location.href=`http://localhost:5000/api/spotify/login/${window.currentUser.id}`;
           return null;
