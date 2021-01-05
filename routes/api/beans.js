@@ -15,6 +15,7 @@ const keysFromReq = (req) => {
     roast: req.body.roast,
     origin: req.body.origin,
     rating: req.body.rating,
+    song: req.body.song,
   }
 }
 
@@ -133,10 +134,14 @@ router.patch(
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     const filter = { _id: req.body.id };
-    const update = keysFromReq(req);
-    Bean.findOneAndUpdate(filter, update, { new: true })
+    const update = req.body;
+
+    Bean.findOneAndUpdate(filter, { $set: update }, { new: true, useFindAndModify: false })
       .then(bean => res.json(bean))
-      .catch(err => res.status(422).json(err));
+      .catch((err) => {
+        console.log(err);
+        res.status(422).json(err);
+      });
   }
 );
 

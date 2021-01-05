@@ -10,6 +10,7 @@ const defaultState = {
   origin: "",
   roast: "",
   rating: 0,
+  song: "",
 };
 
 class BeanFormComponent extends React.Component {
@@ -40,6 +41,7 @@ class BeanFormComponent extends React.Component {
       origin: this.state.origin,
       roast: this.state.roast,
       rating: this.state.rating,
+      song: this.state.song,
     };
     if(this.props.bean){
       newBean.id = this.props.bean._id

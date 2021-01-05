@@ -12,6 +12,7 @@ export class BeanDetail extends React.Component {
       editing: false,
       bean: null,
       notes: null,
+      spotifyFlag: false,
     };
     this.handleDelete = this.handleDelete.bind(this);
     this.handleEdit = this.handleEdit.bind(this);
@@ -52,6 +53,11 @@ export class BeanDetail extends React.Component {
       this.setState({ notes: notes.data });
     })
     .catch((err) => console.log(err))
+
+    API.getSpotifyUser().then((user) => {
+      this.setState({ spotifyFlag: true});
+    })
+    .catch((err) => console.log(err));
   }
 
   render() {
@@ -66,6 +72,7 @@ export class BeanDetail extends React.Component {
       <StaticDetail
         bean={this.state.bean}
         notes={this.state.notes}
+        spotifyFlag={this.state.spotifyFlag}
         handleDelete={this.handleDelete}
         handleEdit={this.handleEdit}
       />

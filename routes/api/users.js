@@ -117,6 +117,17 @@ router.post("/login", (req, res) => {
   });
 });
 
+router.patch("/",
+passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    const filter = { _id: req.body.id };
+    const update = req.body;
+    User.findOneAndUpdate(filter, { $set: update}, { new: true, useFindAndModify: false })
+      .then(user => res.json(user))
+      .catch(err=> res.status(422).json(err));
+  }
+)
+
 //test route for user auth
 router.get('/current', passport.authenticate('jwt', {session: false}), (req, res) => {
   res.json({

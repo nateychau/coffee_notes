@@ -17,6 +17,9 @@ const UserSchema = new Schema(
       required: true
     },
     roasters: [String],
+    accessToken: {
+      type: String
+    }
     // roasters: [
     //   {
     //     type: mongoose.Types.ObjectId, 

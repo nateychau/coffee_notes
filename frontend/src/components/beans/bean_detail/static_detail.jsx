@@ -3,7 +3,7 @@ import { BackButton } from "../../back";
 import { shortName } from "../../../util/bean_util";
 import { Link } from "react-router-dom";
 
-export const StaticDetail = ({ bean, notes, handleDelete, handleEdit }) => {
+export const StaticDetail = ({ bean, notes, spotifyFlag, handleDelete, handleEdit }) => {
   const [more, setMore] = useState(false);
 
   return (
@@ -80,6 +80,28 @@ export const StaticDetail = ({ bean, notes, handleDelete, handleEdit }) => {
             </div>
           )}
         </div>
+        { spotifyFlag ? (
+          <Link
+          to={{
+            pathname: `/spotify/bean/${bean._id}`,
+            state: {
+              bean: bean
+            }
+          }}
+        >
+          <div> 
+            { `Connect a song for ` } 
+            <span>{`${bean.name}`}</span>   
+          </div>
+        </Link>
+        ) : (
+          <div className="spotifyContainer">
+          <div>
+            <h4> connect your spotify to add a song</h4>
+          </div>
+        </div>
+
+        )}
         {notes ? (
           <Link className="brewEntries" to={`/notes/bean/${notes.beanId}`}>
             <div className="brewEntriesButton"> view all entries </div>
