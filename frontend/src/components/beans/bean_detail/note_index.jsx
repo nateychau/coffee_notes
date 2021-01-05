@@ -53,7 +53,6 @@ export class NoteIndex extends React.Component {
             <div className="backButton"> go back </div>
           </Link>
           <div className="brewEntriesNotes"> Brew Entries </div>
-          {/* <Route path="/notes/new" beanId={this.state.beanId} /> */}
           <Link 
             to={{
               pathname: "/notes/new",

@@ -15,10 +15,16 @@ export class SongSearch extends React.Component {
       };
       this.handleChange = this.handleChange.bind(this);
       this.searchSong = this.searchSong.bind(this);
+      this.addSongToBean = this.addSongToBean.bind(this);
+
   }
 
   handleChange(e) {
     this.setState({ [e.target.name]: e.target.value })
+  }
+
+  addSongToBean() {
+
   }
 
   searchSong() {
@@ -31,11 +37,11 @@ export class SongSearch extends React.Component {
   }
 
   render() {
-    console.log('song search rendered');
     const songsList = this.state.songs.length ? this.state.songs.map((songs, i) => {
       return <SongIndexItem
         key={i}
         songs={songs}
+        addSongToBean={this.addSongToBean}
       />
     }) : [];
     return (

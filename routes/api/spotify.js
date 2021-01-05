@@ -92,7 +92,10 @@ router.get('/getMe', (req,res) => {
   .then((user) => {
     return res.json(user.body);
   })
-  .catch(err => { console.log(err)});
+  .catch(err => { 
+    console.log(err);
+    return res.status(401).json(err);
+  });
 });
 
 router.get('/search/songs/:id', (req,res) => {

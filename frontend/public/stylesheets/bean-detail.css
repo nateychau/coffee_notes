@@ -79,8 +79,10 @@ h2.bean-name{
 }
 
 .brewEntries{
+  position: absolute;
   display: flex;
-  justify-content: center;
+  bottom: 50px;
+  align-self: center;
   padding: 5px 0;
 }
 

@@ -28,6 +28,9 @@ const BeanSchema = new Schema(
     rating: {
       type: Number,
     },
+    song: {
+      type: String,
+    }
   },
   { timestamps: true }
 )
