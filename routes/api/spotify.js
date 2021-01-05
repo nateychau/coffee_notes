@@ -109,4 +109,8 @@ router.get('/search/songs/:id', (req,res) => {
   .catch(err => { console.log(err)});
 })
 
+// router.post('/connect/song', (req,res) => {
+//   const 
+// })
+
 module.exports = router;

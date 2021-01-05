@@ -29,7 +29,7 @@ const BeanSchema = new Schema(
       type: Number,
     },
     song: {
-      type: String,
+      type: Object,
     }
   },
   { timestamps: true }

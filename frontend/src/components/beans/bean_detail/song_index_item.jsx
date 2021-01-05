@@ -19,6 +19,9 @@ export const SongIndexItem = ({songs, addSongToBean}) => {
       <div>
         {songs.artists[0].name}
       </div>
+      <button onClick={() => addSongToBean(songs)}>
+        add song to bean
+      </button>
       {/* <div>
         <img src=""
         {songs.album.images[0].url}

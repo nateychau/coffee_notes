@@ -9,7 +9,7 @@ export class SongSearch extends React.Component {
   constructor(props) {
     super(props);
       this.state = {
-        songName: '',
+        userSong: '',
         songs: [],
         bean: this.props.location.state.bean,
       };
@@ -23,13 +23,25 @@ export class SongSearch extends React.Component {
     this.setState({ [e.target.name]: e.target.value })
   }
 
-  addSongToBean() {
+  addSongToBean(songs) {
+    const payload = {
+      userId: window.currentUser.id,
+      id: this.state.bean,
+      song: songs
+    };
 
+    console.log(payload);
+    API.updateBean(payload)
+      .then((res) => {
+        console.log('successfully added song to bean');
+        console.log(res);
+      })
+      .catch((err) => console.log(err));
   }
 
   searchSong() {
     console.log(this.state);
-    API.searchSpotifySong(this.state.songName).then((song) => {
+    API.searchSpotifySong(this.state.userSong).then((song) => {
       this.setState({ songs: song.data.tracks.items});
       console.log(this.state);
     })
@@ -62,8 +74,8 @@ export class SongSearch extends React.Component {
           <input
             onChange={this.handleChange}
             type="text"
-            name="songName"
-            value={this.state.songName}
+            name="userSong"
+            value={this.state.userSong}
           ></input>
           <button className="" onClick={this.searchSong}> query song</button>
       </div>
