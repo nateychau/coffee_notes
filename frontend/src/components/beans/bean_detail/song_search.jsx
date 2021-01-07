@@ -77,7 +77,7 @@ export class SongSearch extends React.Component {
             name="userSong"
             value={this.state.userSong}
           ></input>
-          <button className="" onClick={this.searchSong}> query song</button>
+          <button className="" onClick={this.searchSong}> search </button>
       </div>
       <ul>
         {songsList}

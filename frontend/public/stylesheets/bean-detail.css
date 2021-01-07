@@ -91,7 +91,7 @@ h2.bean-name{
 }
 
 .songCenter{
-  align-self: center;
   position: absolute;
+  align-self: center;
   bottom: 70px;
 }
