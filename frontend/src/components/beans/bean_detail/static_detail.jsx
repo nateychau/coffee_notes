@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 export const StaticDetail = ({ bean, notes, spotifyFlag, handleDelete, handleEdit }) => {
   const [more, setMore] = useState(false);
 
+  console.log(bean);
+
   return (
     <div className="static-detail">
       <BackButton />
@@ -80,28 +82,48 @@ export const StaticDetail = ({ bean, notes, spotifyFlag, handleDelete, handleEdi
             </div>
           )}
         </div>
-        { spotifyFlag ? (
-          <Link
-          to={{
-            pathname: `/spotify/bean/${bean._id}`,
-            state: {
-              bean: bean
-            }
-          }}
-        >
-          <div> 
-            { `Connect a song for ` } 
-            <span>{`${bean.name}`}</span>   
+        {
+          bean.song ? (
+            <div 
+            className="songContainer songCenter">
+              <a href={`${bean.song.external_urls.spotify}`}>
+              <img 
+                className="songImage"
+                alt="album cover" src={`${bean.song.album.images[0].url}`}
+                width="60"
+                height="60"
+                >
+              </img>
+              </a>
+              <div className="songText">
+                <div> {bean.song.album.name} </div>
+                <div> {bean.song.artists[0].name} </div>
+                <div> {bean.song.name} </div>
+              </div>
+            </div>
+          ) : ( spotifyFlag ? (
+            <Link
+            to={{
+              pathname: `/spotify/bean/${bean._id}`,
+              state: {
+                bean: bean
+              }
+            }}
+            >
+            <div
+              className="spotifyContainer songCenter"> 
+              { `search spotify for a song ` } 
+              <span>{`${bean.name}`}</span>   
+            </div>
+          </Link>
+          ) : (
+            <div 
+              className="spotifyContainer songCenter">
+              connect your spotify to add a song
           </div>
-        </Link>
-        ) : (
-          <div className="spotifyContainer">
-          <div>
-            <h4> connect your spotify to add a song</h4>
-          </div>
-        </div>
-
-        )}
+          )
+        )
+        }
         {notes ? (
           <Link className="brewEntries" to={`/notes/bean/${notes.beanId}`}>
             <div className="brewEntriesButton"> view all entries </div>

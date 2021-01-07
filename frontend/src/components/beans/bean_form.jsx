@@ -140,6 +140,15 @@ class BeanFormComponent extends React.Component {
               {ratingOptions}
             </select>
           </div>
+          <div className="bean-field">
+            <label> Song </label>
+            <input
+              onChange={this.handleChange}
+              type="text"
+              name="song"
+              // value={this.state.}
+            ></input>
+          </div>
         </form>
         {
           this.props.bean ? 

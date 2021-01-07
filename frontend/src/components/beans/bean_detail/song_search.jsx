@@ -70,8 +70,8 @@ export class SongSearch extends React.Component {
       </Link>
       <br />
       <div>
-          <h3> Search Spotify for your song </h3>
           <input
+            placeholder="Search Spotify for your song"
             onChange={this.handleChange}
             type="text"
             name="userSong"
