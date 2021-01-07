@@ -81,11 +81,17 @@ h2.bean-name{
 .brewEntries{
   position: absolute;
   display: flex;
-  bottom: 50px;
+  bottom: 30px;
   align-self: center;
   padding: 5px 0;
 }
 
 .brewEntriesButton{
   color: var(--accent);
+}
+
+.songCenter{
+  position: absolute;
+  align-self: center;
+  bottom: 70px;
 }

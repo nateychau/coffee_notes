@@ -63,6 +63,7 @@ class BeanFormComponent extends React.Component {
   }
 
   render() {
+
     //these can be moved outside of class once were sure they're static
     const roastOptions = roastArray.map((roast, i) => {
       return (
@@ -140,6 +141,26 @@ class BeanFormComponent extends React.Component {
               {ratingOptions}
             </select>
           </div>
+          { this.state.song ? (
+            <div className="bean-field">
+              <label> Song </label>
+              <div 
+              className="songContainer">
+                <img 
+                  className="songImage"
+                  alt="album cover" src={`${this.state.song.album.images[0].url}`}
+                  width="60"
+                  height="60"
+                  >
+                </img>
+                <div className="songText">
+                  <div> {this.state.song.album.name} </div>
+                  <div> {this.state.song.artists[0].name} </div>
+                  <div> {this.state.song.name} </div>
+                </div>
+              </div>
+            </div>
+          ) : null }
         </form>
         {
           this.props.bean ? 
