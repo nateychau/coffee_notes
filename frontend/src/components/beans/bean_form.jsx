@@ -1,6 +1,7 @@
 import React from "react";
 import * as API from "../../util/api";
 import { originArray, roastArray } from "../../util/coffee_ref";
+import { Header } from "../../components/header";
 import { BackButton } from "../back";
 import { withRouter } from "react-router-dom";
 
@@ -85,67 +86,70 @@ class BeanFormComponent extends React.Component {
     'Save' : 'Add Bean';
 
     return (
-      <div>
+      <div className="static-detail">
+        <Header />
         {!this.props.bean ? <BackButton /> : null}
-        <form>
-          <div className="bean-field">
-            <label>Name</label>
-            <input
-              onChange={this.handleChange}
-              type="text"
-              name="name"
-              value={this.state.name}
-            ></input>
-          </div>
-          <div className="bean-field">
-            <label>Roaster</label>
-            <input
-              onChange={this.handleChange}
-              type="text"
-              name="roaster"
-              value={this.state.roaster}
-            ></input>
-          </div>
-          <div className="bean-field">
-            <label>Place of Origin</label>
-            <input
-              onChange={this.handleChange}
-              type="text"
-              name="origin"
-              value={this.state.origin}
-            ></input>
-          </div>
-          <div className="bean-field">
-            <label>Roast</label>
-            <select
-              onChange={this.handleChange}
-              name="roast"
-              value={this.state.roast}
-            >
-              <option value="" key="0" disabled>
-                Roast
-              </option>
-              {roastOptions}
-            </select>
-          </div>
-          <div className="bean-field">
-            <label>Rating</label>
-            <select
-              onChange={this.handleChange}
-              name="rating"
-              value={this.state.rating}
-            >
-              <option value="0" key="0" disabled>
-                Rating
-              </option>
-              {ratingOptions}
-            </select>
-          </div>
+        <div className="detail-card">
+          <form>
+            <div style={{  paddingTop: '20px', width: '75%'}}
+              className="bean-field detail-text detail-text-left">
+              <label>Name</label>
+              <input
+                onChange={this.handleChange}
+                type="text"
+                name="name"
+                value={this.state.name}
+              ></input>
+            </div>
+            <div className="bean-field detail-text detail-text-left">
+              <label>Roaster</label>
+              <input
+                onChange={this.handleChange}
+                type="text"
+                name="roaster"
+                value={this.state.roaster}
+              ></input>
+            </div>
+            <div className="bean-field detail-text detail-text-left">
+              <label>Place of Origin</label>
+              <input
+                onChange={this.handleChange}
+                type="text"
+                name="origin"
+                value={this.state.origin}
+              ></input>
+            </div>
+            <div className="bean-field detail-text detail-text-left">
+              <label>Roast</label>
+              <select
+                onChange={this.handleChange}
+                name="roast"
+                value={this.state.roast}
+              >
+                <option value="" key="0" disabled>
+                  Roast
+                </option>
+                {roastOptions}
+              </select>
+            </div>
+            <div className="bean-field detail-text detail-text-left">
+              <label>Rating</label>
+              <select
+                onChange={this.handleChange}
+                name="rating"
+                value={this.state.rating}
+              >
+                <option value="0" key="0" disabled>
+                  Rating
+                </option>
+                {ratingOptions}
+              </select>
+            </div>
+          </form>
           { this.state.song ? (
             <div className="bean-field">
-              <label> Song </label>
               <div 
-              className="songContainer">
+                className="songContainer songCenter">
                 <img 
                   className="songImage"
                   alt="album cover" src={`${this.state.song.album.images[0].url}`}
@@ -161,12 +165,17 @@ class BeanFormComponent extends React.Component {
               </div>
             </div>
           ) : null }
-        </form>
-        {
-          this.props.bean ? 
-          <button onClick={this.handleCancel}>Cancel</button> : null
-        }
-        <button onClick={this.handleSubmit}>{buttonText}</button>
+          {
+            this.props.bean ? 
+            <button 
+              className="cancelButton"
+              onClick={this.handleCancel}>Cancel</button> : null
+          }
+          <button className="detail-btn-container" 
+            onClick={this.handleSubmit}>
+              {buttonText}
+          </button>
+        </div>
       </div>
     );
   }

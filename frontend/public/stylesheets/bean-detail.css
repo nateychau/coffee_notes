@@ -78,6 +78,31 @@ h2.bean-name{
   margin-bottom: 8px;
 }
 
+.detail-text > label {
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 3px;
+}
+
+.detail-text > input {
+  color: var(--dark-text-color);
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  border-bottom: 1px solid black;
+}
+
+.detail-text > select {
+  color: var(--dark-text-color);
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
 .brewEntries{
   position: absolute;
   display: flex;
@@ -86,12 +111,21 @@ h2.bean-name{
   padding: 5px 0;
 }
 
-.brewEntriesButton{
+.brewEntriesButton {
   color: var(--accent);
 }
 
-.songCenter{
+.songCenter {
   position: absolute;
   align-self: center;
   bottom: 70px;
+}
+
+.cancelButton {
+  display: flex;
+  flex-direction: column; 
+  align-self: flex-end; 
+  position: absolute;
+  bottom: 88vh;
+  right: 20px;
 }

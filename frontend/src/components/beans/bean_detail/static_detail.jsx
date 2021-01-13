@@ -107,7 +107,7 @@ export const StaticDetail = ({ bean, notes, spotifyFlag, handleDelete, handleEdi
                 bean: bean
               }
             }} 
-            className="spotifyContainer, songCenter"
+            className="spotifyContainer songCenter"
             >
             <div>  
               {`connect a song to ${bean.name}`}
