@@ -43,6 +43,7 @@ app.use("/api/beans", beans);
 app.use("/api/roasters", roasters);
 app.use("/api/spotify", spotify);
 
+//server frontend static files
 app.use(express.static(path.join(__dirname, 'build')));
 
 app.get('/*', (req, res) => {
