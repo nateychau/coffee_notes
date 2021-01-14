@@ -8,8 +8,16 @@ dotenv.config();
 const port = process.env.PORT || 5000; //production/development ports
 app.listen(port, () => console.log(`Server is running on port ${port}`));
 
+const path = require("path");
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("frontend/build"));
+  app.get("/", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
+  });
+}
+
 //db
-// const db = require('./config/keys').mongoURI;
+const db = require('./config/keys').mongoURI;
 const mongoose = require("mongoose");
 
 mongoose
@@ -42,10 +50,3 @@ app.use("/api/notes", notes);
 app.use("/api/beans", beans);
 app.use("/api/roasters", roasters);
 app.use("/api/spotify", spotify);
-
-//server frontend static files
-app.use(express.static(path.join(__dirname, 'build')));
-
-app.get('/*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});
