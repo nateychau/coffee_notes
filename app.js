@@ -9,7 +9,7 @@ const port = process.env.PORT || 5000; //production/development ports
 app.listen(port, () => console.log(`Server is running on port ${port}`));
 
 //db
-const db = require('./config/keys').mongoURI;
+// const db = require('./config/keys').mongoURI;
 const mongoose = require("mongoose");
 
 mongoose
