@@ -6,10 +6,12 @@
   "scripts": {
     "start": "node app.js",
     "server": "nodemon app.js",
+    "build": "npm install && (cd frontend && react-scripts build)",
     "debug": "node --inspect app.js",
     "frontend-install": "npm install --prefix frontend",
     "frontend": "npm start --prefix frontend",
-    "dev": "concurrently \"npm run debug\" \"npm run frontend\""
+    "dev": "concurrently \"npm run debug\" \"npm run frontend\"",
+    "start-client": "cd frontend && npm start"
   },
   "repository": {
     "type": "git",
@@ -38,5 +40,9 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.6"
+  }
+  ,
+  "engines": {
+    "node": "12.18.3"
   }
 }
