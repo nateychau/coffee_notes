@@ -8,7 +8,6 @@ dotenv.config();
 const port = process.env.PORT || 5000; //production/development ports
 app.listen(port, () => console.log(`Server is running on port ${port}`));
 
-const path = require("path");
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("build"));
   app.get("/", (req, res) => {
