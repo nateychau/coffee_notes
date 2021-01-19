@@ -70,7 +70,8 @@ export const StaticDetail = ({ bean, notes, spotifyFlag, handleDelete, handleEdi
                 to={{
                   pathname: "/notes/new",
                   state: {
-                    beanId: bean._id
+                    beanId: bean._id,
+                    emptyNotes: true
                   }
                 }}>
                 <button>

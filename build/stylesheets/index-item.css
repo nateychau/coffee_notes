@@ -1,0 +1,128 @@
+.bean-item-container{
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0 10px 0;
+  height: 40vh;
+  max-height: 200px;
+}
+
+.bean-item-container:nth-child(even){
+  padding-left: 15px;
+  padding-right: 7.5px;
+}
+
+.bean-item-container:nth-child(odd){
+  padding-left: 7.5px;
+  padding-right: 15px;
+}
+
+
+.bean-item{
+  background-color: var(--light-text-color);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  box-shadow: .5px .5px 5px .5px rgba(0, 0, 0, .34);
+}
+
+.bean-item .img-container{
+  background-color: var(--light-text-color);
+  height: 50%;
+  width: 100%;
+}
+
+.bean-item .img-container img{
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+  /* box-shadow: 1px 0 5px .5px rgba(0, 0, 0, .34); */
+}
+
+.bean-item-text{
+  height: 50%;
+  width: 100%;
+  padding: 8px 10px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  color: var(--dark-text-color);
+}
+
+.bean-item-text h2{
+  font-size: 15px;
+}
+
+.bean-item-text h4{
+  font-size: 12px;
+}
+
+.bean-item-text div{
+  font-size: 10px;
+}
+
+.bean-item-text > * {
+  margin-bottom: 3px;
+}
+
+.bean-item-text div:last-child{
+  margin-bottom: 0;
+}
+
+/* CURRENT BEAN STYLING */
+.current-bean-container{
+  width: 100%;
+  padding: 10px 15px;
+}
+
+.current-bean-container > h2{
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+.current-bean-item{
+  display: flex;
+  width: 100%;
+  background-color: var(--light-text-color);
+  border-radius: 10px;
+  color: var(--dark-text-color);
+}
+
+.current-bean-left, .current-bean-right{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.current-bean-left{
+  align-items: center;
+  padding: 10px 5px 10px 10px;
+}
+
+.current-bean-right{
+  align-items: flex-start;
+  padding: 10px 10px 10px 5px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.current-bean-right h2{
+  color: var(--accent);
+  font-size: 14px;
+}
+
+.current-bean-right div{
+  margin-bottom: 5px;
+}
+
+.current-bean-left .img-container{
+  width: 100%;
+  height: 70%;
+}
+
+.current-bean-left .img-container img{
+  border-radius: 10px;
+}

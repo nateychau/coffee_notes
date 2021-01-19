@@ -10,6 +10,7 @@ const defaultState = {
   notes: "",
   beanId: "",
   updatedAt: "",
+  emptyNotes: ""
 }
 
 const fixTimeStamp = (date) => {  
@@ -25,11 +26,15 @@ class NoteFormComponent extends React.Component {
     this.state = this.defaultState;
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+
+    console.log(this.props.location.state);
   }
 
   componentDidMount() {
     if(this.props.location.state.beanId) {
-      this.setState({beanId: this.props.location.state.beanId})
+      this.setState({beanId: this.props.location.state.beanId,
+        emptyNotes: this.props.location.state.emptyNotes
+      })
     }
   }
 
@@ -64,17 +69,31 @@ class NoteFormComponent extends React.Component {
   }
 
   render() {
+
+    console.log(this.state);
+
     return (
       <div>
         <Header />
         <div className="note-index-page">
-          <Link
-            to={`/notes/bean/${this.state.beanId}`}
-          >
-            <button>
-              <i className="fas fa-angle-left"></i>
-            </button>
-          </Link>
+          {
+            (this.state.emptyNotes === true) ? 
+            <Link
+              to={`/beans/${this.state.beanId}`}
+            >
+              <button>
+                <i className="fas fa-angle-left"></i>
+              </button>
+            </Link>
+            : 
+            <Link
+              to={`/notes/bean/${this.state.beanId}`}
+            >
+              <button>
+                <i className="fas fa-angle-left"></i>
+              </button>
+            </Link>
+          }
           <div className="brewEntriesNotes"> Brew Entries </div>
           <button onClick={this.handleSubmit}> finished </button>
           <form>
