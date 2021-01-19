@@ -26,7 +26,10 @@ const scopes = [
 ];
 
 const spotifyApi = new SpotifyWebApi({
-  redirectUri: 'http://localhost:5000/api/spotify/callback',
+  //dev
+  // redirectUri: 'http://localhost:5000/api/spotify/callback',
+  //prod
+  redirectUri: 'https://coffeenote.herokuapp.com/api/spotify/callback',
   clientId: keys.spotifyClientID,
   clientSecret: keys.spotifyClientSecret
 });
@@ -83,7 +86,10 @@ router.get('/callback', (req,res) => {
       console.log('error getting tokens: ', error);
       res.send(`error getting tokens: ${error}`);
     });
-    res.redirect('http://localhost:3000/#/settings');
+    //dev
+    // res.redirect('http://localhost:3000/#/settings');
+    //prod
+    res.redirect('https://coffeenote.herokuapp.com/#/settings');
   });
 
 router.get('/getMe', (req,res) => {
