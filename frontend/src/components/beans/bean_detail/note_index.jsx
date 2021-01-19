@@ -8,12 +8,10 @@ import { NoteForm } from '../bean_detail/note_form';
 export class NoteIndex extends React.Component {
   constructor(props) {
     super(props);
-
-    console.log(this.props);
-
     this.state = {
       notes: [],
       beanId: '',
+      emptyNotes: true
     };
     // this.handleDelete = this.handleDelete.bind(this);  
   }
@@ -23,6 +21,7 @@ export class NoteIndex extends React.Component {
       .then((notes) => {
         this.setState({notes: notes.data});
         this.setState({beanId: this.props.match.params.id})
+        this.setState({emptyNotes: false});
       })
       .catch((err) => console.log(err));
   }
@@ -57,7 +56,8 @@ export class NoteIndex extends React.Component {
             to={{
               pathname: "/notes/new",
               state: {
-                beanId: this.state.beanId
+                beanId: this.state.beanId,
+                emptyNotes: this.state.emptyNotes
               }  
             }}>
             <button className="addNewBrewEntry">

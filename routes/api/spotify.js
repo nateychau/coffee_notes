@@ -93,7 +93,7 @@ router.get('/getMe', (req,res) => {
     return res.json(user.body);
   })
   .catch(err => { 
-    console.log(err);
+    // console.log(err);
     return res.status(401).json(err);
   });
 });
