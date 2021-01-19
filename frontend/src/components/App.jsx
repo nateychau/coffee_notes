@@ -25,7 +25,7 @@ export const App = () => (
         <ProtectedRoute exact path="/" component={Home} />
         <ProtectedRoute path="/spotify/bean/:id" component={SongSearch}/>
         <ProtectedRoute path="/spotify/login" component={() => {
-          window.location.href=`http://localhost:5000/api/spotify/login/${window.currentUser.id}`;
+          window.location.href=`https://coffeenote/api/spotify/login/${window.currentUser.id}`;
           return null;
         }}/>
       </Switch>
